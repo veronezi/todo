@@ -1,0 +1,19 @@
+databaseChangeLog:
+- changeSet:
+    id: 1
+    author: jdoe
+    changes:
+    - createTable:
+        tableName: t_todo
+        columns:
+        - column:
+            name: id
+            type: char(36)
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: txt
+            type: varchar(256)
+            constraints:
+              nullable: false

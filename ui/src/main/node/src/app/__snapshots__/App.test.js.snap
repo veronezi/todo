@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders App without crashing 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="todos page"
+  >
+    <div
+      className="header"
+    >
+      <div
+        className="title"
+      >
+        <div>
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-1 light"
+            color={undefined}
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+          <h4
+            className="MuiTypography-root-10 MuiTypography-h4-25 light"
+          >
+            Your Things
+          </h4>
+          <h6
+            className="MuiTypography-root-10 MuiTypography-subtitle1-28 light"
+          >
+            12/17/1995
+          </h6>
+        </div>
+        <div
+          aria-valuenow={100}
+          className="MuiLinearProgress-root-45 MuiLinearProgress-colorPrimary-46"
+          role="progressbar"
+        >
+          <div
+            className="MuiLinearProgress-bar-53 MuiLinearProgress-barColorPrimary-54 MuiLinearProgress-bar1Determinate-57"
+            style={
+              Object {
+                "transform": "scaleX(1)",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="todos-numbers"
+      >
+        <div
+          className="percentage"
+        >
+          <div
+            aria-valuenow={100}
+            className="MuiCircularProgress-root-62 MuiCircularProgress-colorPrimary-65 MuiCircularProgress-static-63"
+            role="progressbar"
+            style={
+              Object {
+                "height": 40,
+                "transform": "rotate(-90deg)",
+                "width": 40,
+              }
+            }
+          >
+            <svg
+              className="MuiCircularProgress-svg-67"
+              viewBox="22 22 44 44"
+            >
+              <circle
+                className="MuiCircularProgress-circle-68 MuiCircularProgress-circleStatic-69"
+                cx={44}
+                cy={44}
+                fill="none"
+                r={20.2}
+                strokeWidth={3.6}
+                style={
+                  Object {
+                    "strokeDasharray": "126.920",
+                    "strokeDashoffset": "0.000px",
+                  }
+                }
+              />
+            </svg>
+          </div>
+          <p
+            className="MuiTypography-root-10 MuiTypography-body1-19 value"
+          >
+            100
+            % done
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="content"
+    >
+      <div
+        className="MuiGrid-container-71 MuiGrid-align-items-xs-center-79 MuiGrid-justify-xs-center-88"
+      />
+    </div>
+    <button
+      aria-label="Add"
+      className="MuiButtonBase-root-194 MuiButton-root-168 MuiButton-fab-185 MuiButton-contained-179 MuiButton-containedPrimary-180 MuiButton-raised-182 MuiButton-raisedPrimary-183 add-todo-btn"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <span
+        className="MuiButton-label-169"
+      >
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root-1"
+          color={undefined}
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+          />
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+        </svg>
+      </span>
+      <span
+        className="MuiTouchRipple-root-197"
+      />
+    </button>
+  </div>
+</div>
+`;

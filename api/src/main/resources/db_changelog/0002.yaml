@@ -1,0 +1,13 @@
+databaseChangeLog:
+- changeSet:
+    id: 2
+    author: jdoe
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: done
+            type: boolean
+            constraints:
+              nullable: false
+        tableName: t_todo

@@ -1,0 +1,13 @@
+databaseChangeLog:
+- changeSet:
+    id: 4
+    author: jdoe
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: username
+            type: varchar(50)
+            constraints:
+                nullable: false
+        tableName: t_todo

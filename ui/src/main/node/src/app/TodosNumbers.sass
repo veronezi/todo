@@ -1,0 +1,22 @@
+@import "./Variables.sass"
+
+div.todos-numbers
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+  align-items: flex-end
+  background-color: transparentize($blue, .6)
+  width: 140px
+  padding: 20px
+
+  div.percentage
+    display: flex
+    flex-direction: row
+    align-items: center
+    width: 100%
+    justify-content: flex-end
+    .value
+      color: $gray
+      width: 80px
+      margin: 0 0 0 10px
+      text-align: right

@@ -1,0 +1,37 @@
+= TODO
+
+== How to build it?
+
+```
+mvn clean install
+```
+
+== How to develop the UI.
+
+First start the dependencies with...
+
+```
+docker-compose down
+docker-compose up auth api db ui
+```
+
+Then, from another terminal, start the react application (dev mode) with...
+
+```
+cd ui/src/main/node
+npm install
+npm start
+```
+
+This command above will open your browser automatically.
+
+== How to test it?
+
+```
+docker-compose down
+docker-compose up
+```
+
+== Resources
+
+* UI: https://medium.muz.li/todo-list-inspiration-a1d736c2718a
