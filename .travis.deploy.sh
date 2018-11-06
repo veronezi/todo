@@ -5,11 +5,11 @@ function deploy_java_bin () {
     mvn deploy:deploy-file -DpomFile=$1/pom.xml -Dfile=$1/target/$2-$3.$4 -Dpackaging=$4 -DrepositoryId=bintray-tveronezi-pretests -Durl=https://api.bintray.com/maven/tveronezi/pretests/$2/;publish=1
 }
 
-deploy_java_bin todo/api todo-api $TODO_VERSION-b$TRAVIS_BUILD_NUMBER war
-deploy_java_bin todo/ft todo-ft $TODO_VERSION-b$TRAVIS_BUILD_NUMBER jar
-deploy_java_bin todo/ft todo-ft $TODO_VERSION-b$TRAVIS_BUILD_NUMBER zip
-deploy_java_bin todo/jwt-auth todo-auth $TODO_VERSION-b$TRAVIS_BUILD_NUMBER zip
-deploy_java_bin todo/ui todo-ui $TODO_VERSION-b$TRAVIS_BUILD_NUMBER zip
+deploy_java_bin api todo-api $TODO_VERSION-b$TRAVIS_BUILD_NUMBER war
+deploy_java_bin ft todo-ft $TODO_VERSION-b$TRAVIS_BUILD_NUMBER jar
+deploy_java_bin ft todo-ft $TODO_VERSION-b$TRAVIS_BUILD_NUMBER zip
+deploy_java_bin jwt-auth todo-auth $TODO_VERSION-b$TRAVIS_BUILD_NUMBER zip
+deploy_java_bin ui todo-ui $TODO_VERSION-b$TRAVIS_BUILD_NUMBER zip
 
 function deploy_docker_image () {
     echo "[RUNNING] docker tag $1 veronezi/$1:$2-b$3"
