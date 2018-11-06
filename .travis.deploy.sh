@@ -12,7 +12,7 @@ deploy_java_bin todo/jwt-auth todo-auth $TODO_VERSION-b$TRAVIS_BUILD_NUMBER zip
 deploy_java_bin todo/ui todo-ui $TODO_VERSION-b$TRAVIS_BUILD_NUMBER zip
 
 function deploy_docker_image () {
-    echo "[RUNNING] docker tag $1 veronezi/todo-auth:$2-b$3"
+    echo "[RUNNING] docker tag $1 veronezi/$1:$2-b$3"
     docker tag $1 veronezi/$1:$2-b$3
     echo "[RUNNING] docker push veronezi/$1:$2-b$3"
     docker push veronezi/$1:$2-b$3
