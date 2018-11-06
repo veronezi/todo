@@ -1,0 +1,36 @@
+dist: trusty
+language: java
+install: true
+
+services:
+- docker
+
+sudo: required
+
+cache:
+  directories:
+  - $HOME/.m2
+
+env:
+  global:
+  - KARAOKE_VERSION=0.0.1
+  - TODO_VERSION=0.0.1
+
+addons:
+  chrome: stable
+
+before_install:
+- bash .travis.prepare.sh
+
+script:
+- bash .travis.build.sh
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: bash .travis.deploy.sh
+  on:
+    branch: master
+
+after_script:
+- bash .travis.cleanup.sh
