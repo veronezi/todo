@@ -23,11 +23,7 @@ before_install:
 
 script:
 - bash .travis.build.sh
-
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: bash .travis.deploy.sh
+- bash .travis.deploy.sh
 
 after_script:
 - bash .travis.cleanup.sh
