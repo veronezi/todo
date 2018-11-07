@@ -1,5 +1,7 @@
 = TODO
 
+image:https://travis-ci.org/veronezi/todo.svg?branch=master["Build Status", link="https://travis-ci.org/veronezi/todo"]
+
 == How to build it?
 
 ```
