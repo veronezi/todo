@@ -15,14 +15,14 @@ deploy_java_bin jwt-auth todo-auth $TODO_VERSION-b$TRAVIS_BUILD_NUMBER zip
 deploy_java_bin ui todo-ui $TODO_VERSION-b$TRAVIS_BUILD_NUMBER zip
 
 function deploy_docker_image () {
-    if [ "$TRAVIS_PULL_REQUEST" -eq "false" ]; then
+    if [ "$TRAVIS_BRANCH" -eq "master" ]; then
         echo "deploying docker image veronezi/$1:$2-b$3"
         docker tag $1 veronezi/$1:$2-b$3
         docker push veronezi/$1:$2-b$3
     else
-        echo "deploying docker image veronezi/$1:$2-pr$TRAVIS_PULL_REQUEST"
-       docker tag $1 veronezi/$1:$2-pr$TRAVIS_PULL_REQUEST
-       docker push veronezi/$1:$2-pr$TRAVIS_PULL_REQUEST
+        echo "deploying docker image veronezi/$1:$2-rc$3"
+       docker tag $1 veronezi/$1:$2-rc$3
+       docker push veronezi/$1:$2-rc$3
     fi
 }
 
