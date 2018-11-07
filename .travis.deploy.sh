@@ -32,3 +32,5 @@ deploy_docker_image todo-api $TODO_VERSION $TRAVIS_BUILD_NUMBER
 deploy_docker_image todo-facade $TODO_VERSION $TRAVIS_BUILD_NUMBER
 deploy_docker_image todo-static $TODO_VERSION $TRAVIS_BUILD_NUMBER
 deploy_docker_image todo-ft $TODO_VERSION $TRAVIS_BUILD_NUMBER
+
+echo "binaries uploaded"
