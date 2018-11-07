@@ -2,16 +2,15 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.veronezi</groupId>
+    <parent>
+        <groupId>com.veronezi</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.0.1-b7</version>
+    </parent>
     <artifactId>todo</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-
         <images.version>latest</images.version>
         <openjdk.version>8-jre</openjdk.version>
         <node.version>10.13.0</node.version>
