@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
 
-cp .travis.settings.xml $HOME/.m2/settings.xml
-sed -i 's/my_password/'"$BINTRAY_PASSWORD"'/g' $HOME/.m2/settings.xml
+cp .travis.settings.xml /tmp/.travis.settings.xml
+sed -i 's/my_password/'"$BINTRAY_PASSWORD"'/g' /tmp/.travis.settings.xml
 
-mvn clean -q
-mvn -q versions:set -DnewVersion=$TODO_VERSION-b$TRAVIS_BUILD_NUMBER
+mvn --settings /tmp/.travis.settings.xml clean -q
+mvn --settings /tmp/.travis.settings.xml -q versions:set -DnewVersion=$TODO_VERSION-b$TRAVIS_BUILD_NUMBER
 git diff
 
 docker logout

@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-mvn versions:revert
+mvn --settings /tmp/.travis.settings.xml versions:revert
 docker logout
-rm $HOME/.m2/settings.xml
-
-
-
+rm /tmp/.travis.settings.xml
