@@ -9,7 +9,7 @@ COPY --chown=tomee:tomee tomee.xml /opt/tomee/conf/
 
 RUN mkdir -p /opt/keys/public
 ENV PUBLIC_KEY_DIR=/opt/keys/public
-COPY --chown=tomee:tomee --from=todo-auth-keys:${images.version} /opt/keys/publickey.pem /opt/keys/public/todo_rsa.pub
+COPY --chown=tomee:tomee --from=veronezi/todo-auth-keys /opt/keys/publickey.pem /opt/keys/public/todo_rsa.pub
 
 WORKDIR /opt/tomee/
 

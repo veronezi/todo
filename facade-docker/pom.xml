@@ -71,7 +71,7 @@
                             <verbose>true</verbose>
                             <images>
                                 <image>
-                                    <name>todo-facade:${images.version}</name>
+                                    <name>veronezi/todo-facade</name>
                                     <build>
                                         <filter>false</filter>
                                         <dockerFileDir>${project.build.directory}/docker-build/facade</dockerFileDir>

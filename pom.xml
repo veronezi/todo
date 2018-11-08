@@ -11,7 +11,6 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <properties>
-        <images.version>latest</images.version>
         <openjdk.version>8-jre</openjdk.version>
         <node.version>10.13.0</node.version>
         <log4j.version>1.2.17</log4j.version>

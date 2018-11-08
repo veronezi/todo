@@ -93,7 +93,7 @@
                             <verbose>true</verbose>
                             <images>
                                 <image>
-                                    <name>todo-ft:${images.version}</name>
+                                    <name>veronezi/todo-ft</name>
                                     <build>
                                         <filter>false</filter>
                                         <dockerFileDir>${project.build.directory}/docker-build/ft</dockerFileDir>

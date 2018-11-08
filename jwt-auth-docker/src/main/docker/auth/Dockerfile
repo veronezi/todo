@@ -5,8 +5,8 @@ USER root
 RUN mkdir -p /opt/auth
 RUN mkdir -p /opt/keys/private
 RUN mkdir -p /opt/keys/public
-COPY --from=todo-auth-keys:${images.version} /opt/keys/privatekey.pem /opt/keys/private/todo_rsa
-COPY --from=todo-auth-keys:${images.version} /opt/keys/publickey.pem /opt/keys/public/todo_rsa.pub
+COPY --from=veronezi/todo-auth-keys /opt/keys/privatekey.pem /opt/keys/private/todo_rsa
+COPY --from=veronezi/todo-auth-keys /opt/keys/publickey.pem /opt/keys/public/todo_rsa.pub
 WORKDIR /opt/auth
 
 RUN chown node:node -R /opt
