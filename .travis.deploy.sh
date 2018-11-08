@@ -14,10 +14,10 @@ function deploy_docker_image () {
     fi
 }
 
-deploy_docker_image todo-static $TODO_VERSION $TRAVIS_BUILD_NUMBER
-deploy_docker_image todo-auth $TODO_VERSION $TRAVIS_BUILD_NUMBER
-deploy_docker_image todo-facade $TODO_VERSION $TRAVIS_BUILD_NUMBER
-deploy_docker_image todo-api $TODO_VERSION $TRAVIS_BUILD_NUMBER
-deploy_docker_image todo-ft $TODO_VERSION $TRAVIS_BUILD_NUMBER
+deploy_docker_image veronezi/todo-static $TODO_VERSION $TRAVIS_BUILD_NUMBER
+deploy_docker_image veronezi/todo-auth $TODO_VERSION $TRAVIS_BUILD_NUMBER
+deploy_docker_image veronezi/todo-facade $TODO_VERSION $TRAVIS_BUILD_NUMBER
+deploy_docker_image veronezi/todo-api $TODO_VERSION $TRAVIS_BUILD_NUMBER
+deploy_docker_image veronezi/todo-ft $TODO_VERSION $TRAVIS_BUILD_NUMBER
 
 echo "binaries uploaded"
