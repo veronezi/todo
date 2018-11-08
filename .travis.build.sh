@@ -2,10 +2,10 @@
 set -e
 
 echo "building and installing the java binaries"
-mvn install -DskipTests -Ddocker.skip=true -q
+mvn --settings /tmp/.travis.settings.xml install -DskipTests -Ddocker.skip=true -q
 
 echo "building the docker images"
-mvn install -DskipTests
+mvn --settings /tmp/.travis.settings.xml install -DskipTests
 
 echo "running the maven tests"
-mvn test -Ddocker.skip=true
+mvn --settings /tmp/.travis.settings.xml test -Ddocker.skip=true
