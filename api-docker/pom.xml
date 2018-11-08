@@ -70,15 +70,6 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>org.apache.tomee</groupId>
-                                    <artifactId>apache-tomee</artifactId>
-                                    <version>${tomee.version}</version>
-                                    <classifier>microprofile</classifier>
-                                    <type>tar.gz</type>
-                                    <outputDirectory>${project.build.directory}/docker-build/api</outputDirectory>
-                                    <destFileName>tomee.tar.gz</destFileName>
-                                </artifactItem>
-                                <artifactItem>
                                     <groupId>org.postgresql</groupId>
                                     <artifactId>postgresql</artifactId>
                                     <version>${postgres.driver.version}</version>

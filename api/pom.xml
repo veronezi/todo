@@ -59,18 +59,5 @@
             <artifactId>commons-io</artifactId>
         </dependency>
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.tomee.maven</groupId>
-                <artifactId>tomee-maven-plugin</artifactId>
-                <version>${tomee.version}</version>
-                <configuration>
-                    <context>ROOT</context>
-                    <tomeeClassifier>plus</tomeeClassifier>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
 
