@@ -113,7 +113,7 @@
                             <verbose>true</verbose>
                             <images>
                                 <image>
-                                    <name>todo-api:${images.version}</name>
+                                    <name>veronezi/todo-api</name>
                                     <build>
                                         <filter>false</filter>
                                         <dockerFileDir>${project.build.directory}/docker-build/api</dockerFileDir>

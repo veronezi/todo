@@ -79,7 +79,7 @@
                             <verbose>true</verbose>
                             <images>
                                 <image>
-                                    <name>todo-static:${images.version}</name>
+                                    <name>veronezi/todo-static</name>
                                     <build>
                                         <filter>false</filter>
                                         <dockerFileDir>${project.build.directory}/docker-build/static</dockerFileDir>

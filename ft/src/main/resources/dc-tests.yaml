@@ -2,20 +2,20 @@ version: '3.7'
 
 services:
   static:
-    image: todo-static
+    image: veronezi/todo-static
 
   auth:
-    image: todo-auth
+    image: veronezi/todo-auth
 
   ui:
-    image: todo-facade
+    image: veronezi/todo-facade
     ports:
     - "80"
     environment:
     - WAIT_FOR=api:8080,static:80
 
   api:
-    image: todo-api
+    image: veronezi/todo-api
     ports:
     - "8080"
     environment:

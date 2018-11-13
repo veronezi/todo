@@ -85,7 +85,7 @@
                             <verbose>true</verbose>
                             <images>
                                 <image>
-                                    <name>todo-auth-keys:${images.version}</name>
+                                    <name>veronezi/todo-auth-keys</name>
                                     <build>
                                         <filter>false</filter>
                                         <dockerFileDir>${project.build.directory}/docker-build/auth</dockerFileDir>
@@ -93,7 +93,7 @@
                                     </build>
                                 </image>
                                 <image>
-                                    <name>todo-auth:${images.version}</name>
+                                    <name>veronezi/todo-auth</name>
                                     <build>
                                         <filter>false</filter>
                                         <dockerFileDir>${project.build.directory}/docker-build/auth</dockerFileDir>

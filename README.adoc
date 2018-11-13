@@ -37,3 +37,4 @@ docker-compose up
 == Resources
 
 * UI: https://medium.muz.li/todo-list-inspiration-a1d736c2718a
+* CICD: https://cloud.google.com/solutions/continuous-delivery-with-travis-ci
