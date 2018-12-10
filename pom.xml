@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.veronezi</groupId>
         <artifactId>parent</artifactId>
-        <version>0.0.1-b7</version>
+        <version>0.0.1-b26</version>
     </parent>
     <artifactId>todo</artifactId>
     <packaging>pom</packaging>
@@ -20,7 +20,7 @@
         <tomee.version>7.1.0</tomee.version>
         <lombok.version>1.18.0</lombok.version>
         <powermock.version>1.7.4</powermock.version>
-        <chromedriver.version>2.43</chromedriver.version>
+        <chromedriver.version>2.44</chromedriver.version>
 
         <mp-jwt.version>1.0</mp-jwt.version>
         <mp-config.version>1.2</mp-config.version>
@@ -97,12 +97,12 @@
             <dependency>
                 <groupId>io.github.bonigarcia</groupId>
                 <artifactId>webdrivermanager</artifactId>
-                <version>2.2.5</version>
+                <version>3.1.0</version>
             </dependency>
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-chrome-driver</artifactId>
-                <version>3.14.0</version>
+                <version>3.141.59</version>
             </dependency>
             <dependency>
                 <groupId>org.assertj</groupId>
@@ -141,6 +141,24 @@
         <module>jwt-auth-docker</module>
         <module>facade-docker</module>
     </modules>
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-tveronezi-public</id>
+            <url>https://dl.bintray.com/tveronezi/public</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-tveronezi-public</id>
+            <url>https://dl.bintray.com/tveronezi/public</url>
+        </pluginRepository>
+    </pluginRepositories>
     <build>
         <pluginManagement>
             <plugins>

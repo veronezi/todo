@@ -19,7 +19,7 @@ public class StepsBrowser implements En {
         return "http://" + ServiceGetter.SERVICES.getUiHost() + ":" + ServiceGetter.SERVICES.getUiPort() + path;
     }
 
-    private static void retry(Runnable runnable) {
+    private void retry(Runnable runnable) {
         int i = 10;
         Throwable caught = null;
         while (i-- > 0) {
@@ -37,7 +37,7 @@ public class StepsBrowser implements En {
             }
         }
         if (caught != null) {
-            throw new RuntimeException(caught);
+            throw new TestException(caught);
         }
     }
 
