@@ -1,6 +1,0 @@
-#!/bin/bash
-set -e
-
-docker-compose down
-mvn -pl api,api-docker,jwt-auth,jwt-auth-docker,thirdparty-docker,facade-docker clean install -DskipTests
-docker-compose up ui auth api db

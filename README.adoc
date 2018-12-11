@@ -2,6 +2,74 @@
 
 image:https://travis-ci.org/veronezi/todo.svg?branch=master["Build Status", link="https://travis-ci.org/veronezi/todo"]
 
+== Whats in the box?
+
+This project covers several different technologies used in the industry: docker, docker-compose, dockerize, travis, httpd,
+docker-maven-plugin, JWT, Java, Microprofile, Jakarta EE, testcontainers, cucumber, nodejs, ReactJS, SASS, Javascript
+etc. From backend to frontend; From test to production; If you understand all of it, you are a polyglot programmer.
+
+=== `/api` and `/api-docker`
+
+The `/api` submodule holds the restful application that contains all the business logic for this system. It's a standard
+Jakarta EE application.
+
+Here you will find examples of:
+
+* Microprofile login configuration with JWT via `@LoginConfig`;
+* Microprofile system configuration via `@ConfigProperty`;
+* Microprofile JWT usage via `org.eclipse.microprofile.jwt.JsonWebToken`;
+* `javax.ws`;
+* `javax.persistence`;
+* Lombok: `@Data`, `@EqualsAndHashCode`, `@Slf4j` etc;
+* Liquibase via CDI (http://www.liquibase.org/documentation/cdi.html);
+* Unit tests with PowerMockRunner.
+
+The `/api-docker` submodule is used to build a docker image with Apache TomEE for Microprofile and the restful
+application created by `/api`.
+
+Here you will see the first example of usage of the docker-maven-plugin from fabric8.
+
+=== `/jwt-auth` and `/jwt-auth-docker`
+
+`/jwt-auth` is a nodejs restful application used by the system as JWT provider.
+
+It exposes two endpoints: `POST /auth` and `GET /publickey`.
+
+The first endpoint is used by the `/api` application (here: `api/src/main/java/todo/api/ApiAuth.java`) whenever the user
+tries to authenticate.
+
+`/jwt-auth-docker` wraps the application above on it's own docker image.
+
+=== `/thirdparty-docker`
+
+This submodule contains all the thirdparty docker images that are shareable across our submodules. It currently contains
+a custom docker image for `dockerize` (https://github.com/jwilder/dockerize - an amazing tool for running docker processes).
+
+=== `/ui` and `/ui-docker`
+
+`/ui` is the ReactJS application that builds the user interface. It's wrapped inside a maven module but it can still be used as
+a plain nodejs application. See documentation bellow to see how this works.
+
+`/ui-docker` is the module that builds the production-ready code out of the `/ui` source code and wraps it behind a
+simple httpd server.
+
+=== `/ft` and `/ft-docker`
+
+`/ft` holds the functional tests for both backend and frontend. It's a `selenium`+`cucumber`+`testcontainers` testing
+framework packed in a jar file. The tests are triggered by maven, but we can also run them via the `todo.ft.Main` class.
+
+Here you will find examples of cucumber, selenium and test containers.
+
+`/ft-docker` packages the functional tests in a docker image so we can run the tests from inside a docker network
+(docker-compose or kubernetes, for example). You can see this working if you run `docker-compose up` from the root directory
+of this project.
+
+=== `/facade-docker`
+
+This module builds a docker image with a httpd server that works as proxy for `/api-docker` and `/ui-docker`.
+
+Here you will find examples of httpd's `RewriteRule`.
+
 == How to build it?
 
 ```
@@ -27,7 +95,7 @@ npm install
 npm start
 ```
 
-This command above will open your browser automatically on http://localhost:3000
+The command above will open your browser automatically on http://localhost:3000
 
 From now on, every time you change the source code under `ui/src/main/node/src`, the page at http://localhost:3000 will
 be automatically updated.

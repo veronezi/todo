@@ -1,6 +1,0 @@
-#!/bin/bash
-set -e
-
-cd ui/src/main/node
-npm install
-npm start
