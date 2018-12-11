@@ -227,6 +227,6 @@ public class Steps implements En {
             assertThat(a.getObject().get(aField)).isEqualTo(b.getObject().get(bField));
         });
 
-        Given("I am the '(.+)' user", (String usr) -> userName = usr);
+        Given("I am the '(.*)' user", (String usr) -> userName = usr);
     }
 }

@@ -58,6 +58,7 @@ class Login extends Component {
                                    label="Username"
                                    onChange={this.handleUsernameChange}
                                    value={this.state.username}
+                                   required
                         />
                         <TextField className="field"
                                    label="Password"
@@ -65,11 +66,13 @@ class Login extends Component {
                                    onChange={this.handlePasswordChange}
                                    onKeyPress={this.handlePasswordEnter}
                                    value={this.state.password}
+                                   required
                         />
                         <span>Hey, any username/password works here. This is just a demo. :)</span>
                     </CardContent>
                     <CardActions>
-                        <Button variant="fab" color="primary" aria-label="Login" onClick={this.handleLogin}>
+                        <Button disabled={this.state.username.trim() === '' || this.state.password.trim() === ''}
+                                variant="fab" color="primary" aria-label="Login" onClick={() => this.handleLogin()}>
                             <CheckIcon/>
                         </Button>
                     </CardActions>

@@ -129,6 +129,11 @@
                 <version>${tomee.version}</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>me.xuender</groupId>
+                <artifactId>unidecode</artifactId>
+                <version>0.0.7</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <modules>

@@ -1,6 +1,7 @@
 package todo.ft;
 
 import cucumber.api.java8.En;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -43,9 +44,13 @@ public class StepsBrowser implements En {
 
     private void enterTextField(String text, final String labelText) {
         retry(() -> {
-            Optional<WebElement> optField = browser.getDriver().findElements(By.cssSelector("div.field")).stream().filter(inputCandidate ->
-                    labelText.equalsIgnoreCase(inputCandidate.findElement(By.cssSelector("label")).getText())
-            ).findFirst();
+            Optional<WebElement> optField = browser.getDriver().findElements(By.cssSelector("div.field")).stream().filter(inputCandidate -> {
+                // removing special characters with me.xuender.unidecode.Unidecode -> tx bud!
+                final String actual = me.xuender.unidecode.Unidecode.decode(inputCandidate.findElement(By.cssSelector("label")).getText());
+                final boolean result = labelText.equalsIgnoreCase(actual);
+                System.out.println("Found label '" + actual + "'; expected '" + labelText + "' -> equal? [" + result + "]");
+                return result;
+            }).findFirst();
             WebElement field = optField.orElseThrow(() -> new RuntimeException("Field not found")).findElement(By.cssSelector("input"));
             field.sendKeys(text);
             field.sendKeys(Keys.RETURN);
@@ -85,9 +90,7 @@ public class StepsBrowser implements En {
             }
         }));
 
-        Given("the browser is clean", () -> {
-            browser.getDriver(true);
-        });
+        Given("the browser is clean", () -> browser.getDriver(true));
 
         Given("I click the '(.+)' item", (String ariaLabel) -> retry(() -> {
             Optional<WebElement> el = browser.getDriver()
