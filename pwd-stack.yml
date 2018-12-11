@@ -14,8 +14,6 @@ services:
 
   api:
     image: veronezi/todo-api
-    ports:
-      - "8080:8080"
     environment:
       - WAIT_FOR=db:5432,auth:3000
       - CATALINA_OPTS=-Xms128m -Xmx512m
