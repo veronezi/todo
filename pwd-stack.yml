@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.1'
 
 services:
   static:
@@ -32,8 +32,3 @@ services:
       - POSTGRES_DB=todo
       - POSTGRES_USER=todo_user
       - POSTGRES_PASSWORD=todo_pass
-
-  ft:
-    image: veronezi/todo-ft
-    environment:
-      - WAIT_FOR=api:8080,ui:80,auth:3000
