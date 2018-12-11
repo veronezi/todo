@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './Login.css';
 import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button/Button";
 import CheckIcon from '@material-ui/icons/Check'

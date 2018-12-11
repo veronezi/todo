@@ -16,7 +16,7 @@
     "react-redux": "5.0.7",
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
-    "react-scripts": "1.1.5",
+    "react-scripts": "2.1.1",
     "redux": "4.0.0",
     "typeface-roboto": "0.0.54"
   },
@@ -39,5 +39,11 @@
     "mocha": "5.2.0",
     "react-test-renderer": "16.5.1",
     "sinon": "6.3.3"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

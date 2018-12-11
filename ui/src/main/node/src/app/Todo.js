@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './Todo.css';
 import TextField from "@material-ui/core/TextField/TextField";
 import axios from "./Rest";
 import Loading from "./Loading";

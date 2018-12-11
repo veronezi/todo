@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './Todos.css';
 import axios from './Rest';
 import {connect} from "react-redux";
 import TodosNumbers from './TodosNumbers'
