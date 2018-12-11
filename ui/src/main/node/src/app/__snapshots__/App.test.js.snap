@@ -17,7 +17,6 @@ exports[`renders App without crashing 1`] = `
           <svg
             aria-hidden="true"
             className="MuiSvgIcon-root-1 light"
-            color={undefined}
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -38,7 +37,7 @@ exports[`renders App without crashing 1`] = `
           <h6
             className="MuiTypography-root-10 MuiTypography-subtitle1-28 light"
           >
-            12/17/1995
+            1995-12-17
           </h6>
         </div>
         <div
@@ -134,7 +133,6 @@ exports[`renders App without crashing 1`] = `
         <svg
           aria-hidden="true"
           className="MuiSvgIcon-root-1"
-          color={undefined}
           focusable="false"
           role="presentation"
           viewBox="0 0 24 24"
