@@ -2,18 +2,18 @@ version: '3.1'
 
 services:
   static:
-    image: veronezi/todo-static
+    image: veronezi/todo-static:0.0.1-b57
 
   auth:
-    image: veronezi/todo-auth
+    image: veronezi/todo-auth:0.0.1-b57
 
   ui:
-    image: veronezi/todo-facade
+    image: veronezi/todo-facade:0.0.1-b57
     ports:
       - "80:80"
 
   api:
-    image: veronezi/todo-api
+    image: veronezi/todo-api:0.0.1-b57
     environment:
       - WAIT_FOR=db:5432,auth:3000
       - CATALINA_OPTS=-Xms128m -Xmx512m
