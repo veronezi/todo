@@ -66,6 +66,7 @@ class Login extends Component {
                                    onKeyPress={this.handlePasswordEnter}
                                    value={this.state.password}
                         />
+                        <span>Hey, any username/password works here. This is just a demo. :)</span>
                     </CardContent>
                     <CardActions>
                         <Button variant="fab" color="primary" aria-label="Login" onClick={this.handleLogin}>

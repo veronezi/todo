@@ -47,6 +47,10 @@ html, body
   div.fields
     display: flex
     flex-direction: column
+    max-width: 270px
+    > span
+      font-size: 15px
+      color: $dark
     > div
       margin: 0 0 20px 0
       &:last-child
@@ -129,6 +133,8 @@ html, body
 .todos-list-entry
   $spacing: 20px
   padding: $spacing $spacing 0 $spacing
+  &:hover
+    cursor: pointer
 
   div.content
     display: flex
