@@ -2,6 +2,12 @@
 
 image:https://travis-ci.org/veronezi/todo.svg?branch=master["Build Status", link="https://travis-ci.org/veronezi/todo"]
 
+== Try it now!
+
+Click this button to try it live now. No installation required.
+
+image:https://github.com/play-with-docker/stacks/raw/master/assets/images/button.png[link="https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/veronezi/todo/master/pwd-stack.yml"]
+
 == Whats in the box?
 
 This project covers several different technologies used in the industry: docker, docker-compose, dockerize, travis, httpd,

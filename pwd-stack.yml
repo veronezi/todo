@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  static:
+    image: veronezi/todo-static
+
+  auth:
+    image: veronezi/todo-auth
+
+  ui:
+    image: veronezi/todo-facade
+    ports:
+      - "80:80"
+
+  api:
+    image: veronezi/todo-api
+    ports:
+      - "8080:8080"
+    environment:
+      - WAIT_FOR=db:5432,auth:3000
+      - CATALINA_OPTS=-Xms128m -Xmx512m
+      - DB_URL=db:5432
+      - DB_USR=todo_user
+      - DB_PWD=todo_pass
+      - DB_NAME=todo
+      - JWT_AUTH_URI=http://auth:3000/auth
+
+  db:
+    image: postgres:10.4
+    environment:
+      - DEBUG=false
+      - POSTGRES_DB=todo
+      - POSTGRES_USER=todo_user
+      - POSTGRES_PASSWORD=todo_pass
+
+  ft:
+    image: veronezi/todo-ft
+    environment:
+      - WAIT_FOR=api:8080,ui:80,auth:3000
