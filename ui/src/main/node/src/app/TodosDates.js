@@ -6,10 +6,14 @@ const functions = {
     getNow: () => new Date()
 };
 
+const options = {
+    year: 'numeric', month: 'numeric', day: 'numeric'
+};
+
 class TodosDates extends Component {
     render() {
         return (
-            <Typography className={this.props.className} variant="subtitle1">{functions.getNow().toLocaleDateString()}</Typography>
+            <Typography className={this.props.className} variant="subtitle1">{new Intl.DateTimeFormat('en-US', options).format(functions.getNow())}</Typography>
         );
     }
 }
