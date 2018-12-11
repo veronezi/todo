@@ -82,7 +82,7 @@ Here you will find examples of httpd's `RewriteRule`.
 mvn clean install
 ```
 
-== How to develop the UI.
+== How to develop the UI?
 
 First start the dependencies with...
 
