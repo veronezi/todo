@@ -3,6 +3,9 @@ import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button/Button";
 import CheckIcon from '@material-ui/icons/Check'
 import axios from 'axios';
+import Card from "@material-ui/core/Card/Card";
+import CardContent from "@material-ui/core/CardContent/CardContent";
+import CardActions from "@material-ui/core/CardActions/CardActions";
 
 class Login extends Component {
 
@@ -49,23 +52,27 @@ class Login extends Component {
     render() {
         return (
             <div className="login">
-                <div className="fields">
-                    <TextField className="field"
-                               label="Username"
-                               onChange={this.handleUsernameChange}
-                               value={this.state.username}
-                    />
-                    <TextField className="field"
-                               label="Password"
-                               type="password"
-                               onChange={this.handlePasswordChange}
-                               onKeyPress={this.handlePasswordEnter}
-                               value={this.state.password}
-                    />
-                </div>
-                <Button variant="fab" color="primary" aria-label="Login" onClick={this.handleLogin}>
-                    <CheckIcon/>
-                </Button>
+                <Card>
+                    <CardContent className={"fields"}>
+                        <TextField className="field"
+                                   label="Username"
+                                   onChange={this.handleUsernameChange}
+                                   value={this.state.username}
+                        />
+                        <TextField className="field"
+                                   label="Password"
+                                   type="password"
+                                   onChange={this.handlePasswordChange}
+                                   onKeyPress={this.handlePasswordEnter}
+                                   value={this.state.password}
+                        />
+                    </CardContent>
+                    <CardActions>
+                        <Button variant="fab" color="primary" aria-label="Login" onClick={this.handleLogin}>
+                            <CheckIcon/>
+                        </Button>
+                    </CardActions>
+                </Card>
             </div>
         );
     }

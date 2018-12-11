@@ -27,13 +27,19 @@ html, body
   display: flex
   flex-direction: column
 
-div.login
+.login
   width: 100vw
   height: 100vh
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
+  > div
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    background-color: white
 
   div.fields
     display: flex
@@ -41,10 +47,9 @@ div.login
     > div
       margin: 0 0 20px 0
       &:last-child
-        margin: 0 0 40px 0
+        margin: 0
 
 .todo
-
   div.content
     flex-grow: 1
     display: flex
@@ -72,6 +77,7 @@ div.login
       font-weight: 400
       font-size: 20px
       margin: 0
+
 
 .todos
   position: relative
