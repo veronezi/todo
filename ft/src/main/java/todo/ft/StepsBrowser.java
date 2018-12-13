@@ -72,14 +72,14 @@ public class StepsBrowser implements En {
 
         Given("I open the '(.*)' page", this::openPath);
 
-        Given("I enter '(.*)' in the text field '(.*)' label and press enter", this::enterTextField);
+        Given("I enter '(.*)' in the '(.*)' text field and press enter", this::enterTextField);
 
-        Given("I open the '(.*)' page and I enter '(.*)' in the text field '(.*)' label and press enter", (String path, String text, final String labelText) -> retry(() -> {
+        Given("I open the '(.*)' page and I enter '(.*)' in the '(.*)' text field and press enter", (String path, String text, final String labelText) -> retry(() -> {
             this.openPath(path);
             this.enterTextField(text, labelText);
         }));
 
-        Then("a list has one element with the '(.+)' in it", (String text) -> retry(() -> {
+        Then("a list has at least one element with '(.+)' in it", (String text) -> retry(() -> {
             Optional<WebElement> el = browser.getDriver()
                     .findElements(By.cssSelector(".list-entry")).stream().filter(inputCandidate ->
                             inputCandidate.findElements(By.cssSelector("span, p")).stream().anyMatch(span ->
@@ -92,7 +92,7 @@ public class StepsBrowser implements En {
 
         Given("the browser is clean", () -> browser.getDriver(true));
 
-        Given("I click the '(.+)' item", (String ariaLabel) -> retry(() -> {
+        Given("I click '(.+)'", (String ariaLabel) -> retry(() -> {
             Optional<WebElement> el = browser.getDriver()
                     .findElements(By.cssSelector("[aria-label]")).stream().filter(candidate ->
                             candidate.getAttribute("aria-label").equalsIgnoreCase(ariaLabel)
