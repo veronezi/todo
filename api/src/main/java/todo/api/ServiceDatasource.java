@@ -1,5 +1,7 @@
 package todo.api;
 
+import lombok.val;
+
 import javax.annotation.Resource;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJBContext;
@@ -7,7 +9,7 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,13 +26,12 @@ public class ServiceDatasource {
     private EJBContext context;
 
     private <T extends EntityBase> void validateAccess(T entity) {
-        if (!Objects.equals(context.getCallerPrincipal().getName(), entity.username)
-        ) {
-            throw new ExceptionAccessDenied(
-                    "The user '" + context.getCallerPrincipal().getName()
-                            + "' tried to access a todo from another user. Only '"
-                            + entity.username + "' can access this object"
-            );
+        if (!Objects.equals(context.getCallerPrincipal().getName(), entity.username)) {
+            throw new ExceptionAccessDenied(MessageFormat.format(
+                    "The user ''{0}'' tried to access a todo from another user. Only ''{1}'' can access this object",
+                    context.getCallerPrincipal().getName(),
+                    entity.username
+            ));
         }
     }
 
@@ -55,20 +56,23 @@ public class ServiceDatasource {
     }
 
     private <T extends EntityBase> void deleteAll(Class<T> cls) {
-        final Query query = em.createQuery("DELETE FROM " + cls.getName() + " as e");
+        val query = em.createQuery(MessageFormat.format("DELETE FROM {0} as e", cls.getName()));
         query.executeUpdate();
     }
 
     @SuppressWarnings("unchecked")
     @TransactionAttribute(SUPPORTS)
     public <T extends EntityBase> List<T> getAll(final Class<T> cls) {
-        final Query query = em.createQuery("SELECT e FROM " + cls.getName() + " as e WHERE e.username = :usr");
+        val query = em.createQuery(MessageFormat.format(
+                "SELECT e FROM {0} as e WHERE e.username = :usr",
+                cls.getName()
+        ));
         query.setParameter("usr", context.getCallerPrincipal().getName());
         return query.getResultList();
     }
 
     public <T extends EntityBase> T find(Class<T> cls, String id) {
-        final T entity = em.find(cls, id);
+        val entity = em.find(cls, id);
         validateAccess(entity);
         return entity;
     }

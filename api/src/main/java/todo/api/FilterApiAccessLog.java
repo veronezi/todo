@@ -1,6 +1,7 @@
 package todo.api;
 
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -27,7 +28,7 @@ public class FilterApiAccessLog implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        long init = System.currentTimeMillis();
+        val init = System.currentTimeMillis();
         try {
             chain.doFilter(request, response);
         } finally {

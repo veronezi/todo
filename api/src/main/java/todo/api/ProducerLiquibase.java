@@ -4,6 +4,7 @@ import liquibase.integration.cdi.CDILiquibaseConfig;
 import liquibase.integration.cdi.annotations.LiquibaseType;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import liquibase.resource.ResourceAccessor;
+import lombok.val;
 
 import javax.annotation.Resource;
 import javax.enterprise.inject.Produces;
@@ -17,7 +18,7 @@ public class ProducerLiquibase {
     @Produces
     @LiquibaseType
     public CDILiquibaseConfig getConfig() {
-        CDILiquibaseConfig config = new CDILiquibaseConfig();
+        val config = new CDILiquibaseConfig();
         config.setChangeLog("db_changelog/main.yaml");
         return config;
     }

@@ -25,7 +25,7 @@
         <mp-jwt.version>1.0</mp-jwt.version>
         <mp-config.version>1.2</mp-config.version>
 
-        <headless>false</headless>
+        <headless>true</headless>
     </properties>
     <dependencyManagement>
         <dependencies>

@@ -1,5 +1,6 @@
 package todo.api;
 
+import lombok.val;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,7 +14,7 @@ public class ListenerEntityBaseTest {
 
     @Test
     public void type4Test() {
-        MyEntity entity = new MyEntity();
+        val entity = new MyEntity();
         entity.username = "jdoe";
         new ListenerEntityBase().prepareId(entity);
         Assert.assertNotNull(entity.getId());

@@ -1,6 +1,7 @@
 package todo.api;
 
 import lombok.Getter;
+import lombok.val;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -15,7 +16,7 @@ public class ServiceTransformers {
     private JsonWebToken callerPrincipal;
 
     private final Function<EntityTodo, DtoTodo> todoToDto = entity -> {
-        DtoTodo dto = new DtoTodo();
+        val dto = new DtoTodo();
         dto.setId(entity.getId());
         dto.setText(entity.getText());
         dto.setDone(entity.isDone());
@@ -24,7 +25,7 @@ public class ServiceTransformers {
     };
 
     private final Function<DtoTodo, EntityTodo> todoToEntity = dto -> {
-        EntityTodo entity = new EntityTodo();
+        val entity = new EntityTodo();
         entity.id = dto.getId();
         entity.setText(dto.getText());
         entity.setDone(dto.isDone());

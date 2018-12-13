@@ -1,5 +1,6 @@
 package todo.api;
 
+import lombok.val;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -30,9 +31,9 @@ public class FilterApiAccessLogTest {
         when(LoggerFactory.getLogger(FilterApiAccessLog.class)).thenReturn(logger);
         when(request.getMethod()).thenReturn(METHOD);
         when(request.getRequestURI()).thenReturn(URL);
-        final HttpServletResponse response = mock(HttpServletResponse.class);
-        final FilterChain chain = mock(FilterChain.class);
-        final FilterApiAccessLog filter = new FilterApiAccessLog();
+        val response = mock(HttpServletResponse.class);
+        val chain = mock(FilterChain.class);
+        val filter = new FilterApiAccessLog();
         // Executing the filter
         filter.doFilter(request, response, chain);
     }
@@ -40,8 +41,8 @@ public class FilterApiAccessLogTest {
     @Test
     @PrepareForTest({LoggerFactory.class})
     public void logAuthenticated() throws IOException, ServletException {
-        final Logger logger = mock(Logger.class);
-        final HttpServletRequest request = mock(HttpServletRequest.class);
+        val logger = mock(Logger.class);
+        val request = mock(HttpServletRequest.class);
         when(request.getUserPrincipal()).thenReturn(() -> "jdoe");
         prepare(logger, request);
         // Verify that we have the proper log message
@@ -57,8 +58,8 @@ public class FilterApiAccessLogTest {
     @Test
     @PrepareForTest({LoggerFactory.class})
     public void logNonAuthenticated() throws IOException, ServletException {
-        final Logger logger = mock(Logger.class);
-        final HttpServletRequest request = mock(HttpServletRequest.class);
+        val logger = mock(Logger.class);
+        val request = mock(HttpServletRequest.class);
         prepare(logger, request);
         verify(logger, only()).info(
                 eq(PATTERN),
