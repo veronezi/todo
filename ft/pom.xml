@@ -10,6 +10,10 @@
     <artifactId>todo-ft</artifactId>
     <dependencies>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>todo-facade-docker</artifactId>
             <version>${project.version}</version>

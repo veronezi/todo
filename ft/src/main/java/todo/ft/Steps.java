@@ -4,22 +4,26 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import com.mashape.unirest.request.GetRequest;
 import com.mashape.unirest.request.HttpRequestWithBody;
-import com.mashape.unirest.request.body.RequestBodyEntity;
 import cucumber.api.java8.En;
 import io.cucumber.datatable.DataTable;
+import lombok.extern.java.Log;
+import lombok.val;
+import lombok.var;
 import org.assertj.core.api.Condition;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.*;
-import java.util.regex.Matcher;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Fail.fail;
 
+@Log
 public class Steps implements En {
     private static final Map<String, Object> NOTEBOOK = new HashMap<>();
     private static String userName = "jdoe";
@@ -29,8 +33,8 @@ public class Steps implements En {
     }
 
     private String getAuthorization(String username) {
-        final String url = "http://" + ServiceGetter.SERVICES.getApiHost() + ":" + ServiceGetter.SERVICES.getApiPort() + "/api/login";
-        final RequestBodyEntity request = Unirest.post(url)
+        val url = "http://" + ServiceGetter.SERVICES.getApiHost() + ":" + ServiceGetter.SERVICES.getApiPort() + "/api/login";
+        val request = Unirest.post(url)
                 .header("Content-Type", "application/json")
                 .header("Cache-Control", "no-cache")
                 .body("{\n\t\"username\": \"" + username + "\",\n\t\"password\": \"123456\"\n}");
@@ -41,24 +45,24 @@ public class Steps implements En {
             throw new TestException(e);
         }
         if (token.getStatus() != 200) {
-            throw new TestException("Bad auth request -> " + token);
+            throw new TestException(MessageFormat.format("Bad auth request -> {0}", token));
         }
-        return "Bearer " + token.getBody();
+        return MessageFormat.format("Bearer {0}", token.getBody());
     }
 
     private static String getFormattedPath(String originalPath, String jsonName) {
-        final JsonNode myJson = (JsonNode) NOTEBOOK.get(jsonName);
-        final Matcher m = Pattern.compile("\\:[a-zA-Z0-9_]+").matcher(originalPath);
-        final List<String> params = new ArrayList<>();
-        String path = originalPath;
+        val myJson = (JsonNode) NOTEBOOK.get(jsonName);
+        val m = Pattern.compile("\\:[a-zA-Z0-9_]+").matcher(originalPath);
+        val params = new ArrayList<String>();
+        var path = originalPath;
         while (m.find()) {
             params.add(m.group());
         }
-        System.out.println("[params] " + params);
+        log.info(MessageFormat.format("[params] {0}", params));
         for (String param : params) {
             path = path.replaceAll(param, String.valueOf(myJson.getObject().get(param.substring(1))));
         }
-        System.out.println("[path formatted] " + originalPath + " > " + path);
+        log.info("[path formatted] " + originalPath + " > " + path);
         return path;
     }
 
@@ -69,7 +73,7 @@ public class Steps implements En {
                 String jsonName,
                 String jsonField,
                 String text) -> {
-            JsonNode myJson = (JsonNode) NOTEBOOK.get(jsonName);
+            val myJson = (JsonNode) NOTEBOOK.get(jsonName);
             myJson.getObject().put(jsonField, text);
         });
 
@@ -77,7 +81,7 @@ public class Steps implements En {
                 String jsonName,
                 String jsonField,
                 String text) -> {
-            JsonNode myJson = (JsonNode) NOTEBOOK.get(jsonName);
+            val myJson = (JsonNode) NOTEBOOK.get(jsonName);
             myJson.getObject().put(jsonField, Boolean.valueOf(text));
         });
 
@@ -95,8 +99,8 @@ public class Steps implements En {
                 fail("Unexpected verb.");
                 return;
             }
-            final String json = NOTEBOOK.get(jsonName).toString();
-            System.out.println("We will " + verbTxt + " this json -> '" + json + "'");
+            val json = NOTEBOOK.get(jsonName).toString();
+            log.info(MessageFormat.format("We will {0} this json -> ''{1}''", verbTxt, json));
             final HttpResponse<JsonNode> response;
             try {
                 response = request
@@ -107,7 +111,7 @@ public class Steps implements En {
             } catch (UnirestException e) {
                 throw new TestException(request.asString().getBody());
             }
-            System.out.println("We've got this response -> '" + response.getBody() + "'");
+            log.info(MessageFormat.format("We''ve got this response -> ''{0}''", response.getBody()));
             if (!"".equals(resultingJsonName)) {
                 NOTEBOOK.put(resultingJsonName, response.getBody());
             }
@@ -117,8 +121,8 @@ public class Steps implements En {
                 String jsonName,
                 String fieldName,
                 String regex) -> {
-            JsonNode myJson = (JsonNode) NOTEBOOK.get(jsonName);
-            String value = myJson.getObject().getString(fieldName);
+            val myJson = (JsonNode) NOTEBOOK.get(jsonName);
+            val value = myJson.getObject().getString(fieldName);
             assertThat(value).matches(regex);
         });
 
@@ -127,17 +131,17 @@ public class Steps implements En {
                 String jsonOneField,
                 String jsonTwoName,
                 String jsonTwoField) -> {
-            final JsonNode one = (JsonNode) NOTEBOOK.get(jsonOneName);
-            final JsonNode two = (JsonNode) NOTEBOOK.get(jsonTwoName);
-            final Object valOne = one.getObject().get(jsonOneField);
-            final Object valTwo = two.getObject().get(jsonTwoField);
+            val one = (JsonNode) NOTEBOOK.get(jsonOneName);
+            val two = (JsonNode) NOTEBOOK.get(jsonTwoName);
+            val valOne = one.getObject().get(jsonOneField);
+            val valTwo = two.getObject().get(jsonTwoField);
             assertThat(valOne).isEqualTo(valTwo);
         });
 
         When("I execute 'GET' against '(.+)' and save the resulting json as '(.+)'", (
                 String url,
                 String listName) -> {
-            final GetRequest request = Unirest.get(getEndpointUrl(url))
+            val request = Unirest.get(getEndpointUrl(url))
                     .header("Cache-Control", "no-cache")
                     .header("Authorization", getAuthorization(userName));
             final HttpResponse<JsonNode> response;
@@ -150,14 +154,14 @@ public class Steps implements En {
         });
 
         Then("'(.+)' list matches", (String listName, DataTable dt) -> {
-            final JSONArray list = ((JsonNode) NOTEBOOK.get(listName)).getArray();
-            final List<Map<String, String>> expected = dt.asMaps();
+            val list = ((JsonNode) NOTEBOOK.get(listName)).getArray();
+            val expected = dt.asMaps();
             assertThat(list).hasSize(expected.size());
             for (int i = 0; i < expected.size(); i++) {
-                final Map<String, String> expectedItem = expected.get(i);
-                final JSONObject actual = (JSONObject) list.get(i);
+                val expectedItem = expected.get(i);
+                val actual = (JSONObject) list.get(i);
                 expectedItem.forEach((field, value) -> {
-                    final Object actualValue = actual.get(field);
+                    val actualValue = actual.get(field);
                     if (Objects.equals(actualValue == null ? null : String.valueOf(actualValue), value)) {
                         return;
                     }
@@ -177,10 +181,10 @@ public class Steps implements En {
                 String listName,
                 String jsonName,
                 String jsonFieldName) -> {
-            final JSONArray list = ((JsonNode) NOTEBOOK.get(listName)).getArray();
-            final JSONObject element = (JSONObject) list.get(itemIndex);
-            final Object fieldValue = element.get(fieldName);
-            final JsonNode json = (JsonNode) NOTEBOOK.get(jsonName);
+            val list = ((JsonNode) NOTEBOOK.get(listName)).getArray();
+            val element = (JSONObject) list.get(itemIndex);
+            val fieldValue = element.get(fieldName);
+            val json = (JsonNode) NOTEBOOK.get(jsonName);
             assertThat(fieldValue).isEqualTo(json.getObject().get(jsonFieldName));
         });
 
@@ -205,7 +209,7 @@ public class Steps implements En {
                 String path,
                 String noteBookEntryName,
                 String newNotebookEntryName) -> {
-            final GetRequest request = Unirest.get(getEndpointUrl(getFormattedPath(path, noteBookEntryName)))
+            val request = Unirest.get(getEndpointUrl(getFormattedPath(path, noteBookEntryName)))
                     .header("Cache-Control", "no-cache")
                     .header("Authorization", getAuthorization(userName));
             final HttpResponse<JsonNode> response;
@@ -218,12 +222,12 @@ public class Steps implements En {
         });
 
         Then("'(.+)' field is equal to '(.+)' field", (String noteBookEntryA, String noteBookEntryB) -> {
-            final String aName = noteBookEntryA.split("\\.")[0];
-            final String aField = noteBookEntryA.split("\\.")[1];
-            final String bName = noteBookEntryB.split("\\.")[0];
-            final String bField = noteBookEntryB.split("\\.")[1];
-            final JsonNode a = (JsonNode) NOTEBOOK.get(aName);
-            final JsonNode b = (JsonNode) NOTEBOOK.get(bName);
+            val aName = noteBookEntryA.split("\\.")[0];
+            val aField = noteBookEntryA.split("\\.")[1];
+            val bName = noteBookEntryB.split("\\.")[0];
+            val bField = noteBookEntryB.split("\\.")[1];
+            val a = (JsonNode) NOTEBOOK.get(aName);
+            val b = (JsonNode) NOTEBOOK.get(bName);
             assertThat(a.getObject().get(aField)).isEqualTo(b.getObject().get(bField));
         });
 

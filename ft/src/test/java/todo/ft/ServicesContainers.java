@@ -65,9 +65,4 @@ public class ServicesContainers implements ServicesProvider {
     public boolean isHeadless() {
         return Boolean.getBoolean("headless");
     }
-
-    @Override
-    public boolean isOnDocker() {
-        return Boolean.getBoolean("on_docker");
-    }
 }

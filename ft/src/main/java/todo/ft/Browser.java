@@ -1,13 +1,13 @@
 package todo.ft;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.val;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.Closeable;
-import java.util.Iterator;
 import java.util.ServiceLoader;
 
 public class Browser implements Closeable {
@@ -19,7 +19,7 @@ public class Browser implements Closeable {
     private static final Browser INSTANCE = new Browser();
 
     static {
-        Iterator<ServicesProvider> loaded = ServiceLoader.load(ServicesProvider.class).iterator();
+        val loaded = ServiceLoader.load(ServicesProvider.class).iterator();
         services = loaded.next();
         WebDriverManager.chromedriver().setup();
     }
@@ -38,20 +38,15 @@ public class Browser implements Closeable {
                 this.close();
             }
             if (this.driver == null) {
-                final ChromeOptions chromeOptions = new ChromeOptions();
+                val chromeOptions = new ChromeOptions();
                 if (services.isHeadless()) {
                     chromeOptions.addArguments(
-                            "--headless"
-                    );
-                }
-                if (services.isOnDocker()) {
-                    chromeOptions.addArguments(
+                            "--headless",
                             "--no-sandbox",
                             "--disable-gpu"
                     );
                 }
-                System.out.println("Chrome OPTS -> " + chromeOptions.asMap());
-                ChromeDriverService service = new ChromeDriverService.Builder()
+                val service = new ChromeDriverService.Builder()
                         .withWhitelistedIps("")
                         .build();
                 this.driver = new ChromeDriver(service, chromeOptions);

@@ -8,5 +8,4 @@ public interface ServicesProvider {
     Integer getUiPort();
 
     boolean isHeadless();
-    boolean isOnDocker();
 }
