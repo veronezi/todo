@@ -76,6 +76,12 @@ html, body
     display: flex
     justify-content: space-between
     align-items: center
+    .back-button
+      transition: transform 200ms ease-in-out
+      &:hover
+        cursor: pointer
+        transform: translate(-5px)
+
     h1
       font-weight: 400
       font-size: 20px
