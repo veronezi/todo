@@ -7,6 +7,15 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import Button from "@material-ui/core/Button/Button";
 import {connect} from "react-redux";
 import Typography from "@material-ui/core/Typography/Typography";
+import withStyles from "@material-ui/core/styles/withStyles";
+import classNames from "classnames";
+import grey from '@material-ui/core/colors/grey';
+
+const styles = ({
+    "content": {
+        backgroundColor: grey[100]
+    }
+});
 
 class Todo extends Component {
     state = {
@@ -41,7 +50,7 @@ class Todo extends Component {
         return (
             <div className="todo page">
                 <Loading/>
-                <div className="content">
+                <div className={classNames(this.props.classes.content, "content")}>
                     <div className="header">
                         <Back className="back-button" onClick={this.handleGoBack}/>
                         <Typography variant="h6">Add new thing</Typography>
@@ -65,4 +74,4 @@ class Todo extends Component {
     }
 }
 
-export default connect()(Todo);
+export default withStyles(styles)(connect()(Todo));

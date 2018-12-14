@@ -11,7 +11,7 @@ const styles = theme => ({
         "#root": {
             backgroundColor: theme.palette.primary.dark
         },
-        ".page .content": {
+        ".page": {
             backgroundColor: grey[50]
         }
     }
