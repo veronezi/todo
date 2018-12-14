@@ -6,6 +6,17 @@ import axios from 'axios';
 import Card from "@material-ui/core/Card/Card";
 import CardContent from "@material-ui/core/CardContent/CardContent";
 import CardActions from "@material-ui/core/CardActions/CardActions";
+import withStyles from "@material-ui/core/styles/withStyles";
+import grey from '@material-ui/core/colors/grey';
+
+const styles = theme => ({
+    theme: {
+        backgroundColor: theme.palette.primary[50]
+    },
+    dark: {
+        color: grey.A700
+    }
+});
 
 class Login extends Component {
 
@@ -52,7 +63,7 @@ class Login extends Component {
     render() {
         return (
             <div className="login">
-                <Card>
+                <Card className={this.props.classes.theme}>
                     <CardContent className={"fields"}>
                         <TextField className="field"
                                    label="Username"
@@ -68,7 +79,7 @@ class Login extends Component {
                                    value={this.state.password}
                                    required
                         />
-                        <span>Hey, any username/password works here. This is just a demo. :)</span>
+                        <span className={this.props.classes.dark}>Hey, any username/password works here. This is just a demo. :)</span>
                     </CardContent>
                     <CardActions>
                         <Button disabled={this.state.username.trim() === '' || this.state.password.trim() === ''}
@@ -82,4 +93,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withStyles(styles)(Login);

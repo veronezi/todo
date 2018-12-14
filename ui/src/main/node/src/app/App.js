@@ -3,6 +3,19 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Login from './Login';
 import Todos from './Todos';
 import Todo from "./Todo";
+import withStyles from "@material-ui/core/styles/withStyles";
+import grey from '@material-ui/core/colors/grey';
+
+const styles = theme => ({
+    "@global": {
+        "#root": {
+            backgroundColor: theme.palette.primary.dark
+        },
+        ".page .content": {
+            backgroundColor: grey[50]
+        }
+    }
+});
 
 class App extends Component {
 
@@ -19,4 +32,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withStyles(styles)(App);
