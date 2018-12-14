@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
 import grey from '@material-ui/core/colors/grey';
+import {withRouter} from "react-router-dom";
 
 const styles = ({
     "content": {
@@ -64,7 +65,7 @@ class Todo extends Component {
                                    onKeyPress={this.handleAddNewTodo}
                         />
                         <Button variant="contained" color="primary" aria-label="Add your thing"
-                                onClick={this.addNewTodo}>
+                                onClick={() => this.addNewTodo()}>
                             Add your thing
                         </Button>
                     </div>
@@ -74,4 +75,4 @@ class Todo extends Component {
     }
 }
 
-export default withStyles(styles)(connect()(Todo));
+export default withStyles(styles)(connect()(withRouter(Todo)));

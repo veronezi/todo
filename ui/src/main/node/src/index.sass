@@ -14,13 +14,16 @@ html, body
   align-items: center
 
 .App
-  display: flex
-  justify-content: center
-  align-items: stretch
   $my-width: 600px
   width: $my-width
   @media only screen and (max-width: $my-width)
     width: 100%
+  > div
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: stretch
 
 .page
   width: 100%

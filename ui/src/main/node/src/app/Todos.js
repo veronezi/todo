@@ -15,6 +15,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import grey from '@material-ui/core/colors/grey';
 import classNames from "classnames";
 import hexRgb from 'hex-rgb';
+import {withRouter} from "react-router-dom";
 
 const styles = theme => {
     const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
@@ -71,7 +72,7 @@ class Todos extends Component {
                     </Grid>
                 </div>
                 <Button className="add-todo-btn" variant="fab" color="primary" aria-label="Add"
-                        onClick={this.openTodoPage}>
+                        onClick={() => this.openTodoPage()}>
                     <AddIcon/>
                 </Button>
             </div>
@@ -91,4 +92,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Todos));
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(withRouter(Todos)));

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route} from "react-router-dom";
 import Login from './Login';
-import Todos from './Todos';
-import Todo from "./Todo";
+import Navigator from './Navigator';
 import withStyles from "@material-ui/core/styles/withStyles";
 import grey from '@material-ui/core/colors/grey';
 
@@ -23,8 +22,8 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="App">
-                    <Route exact path="/" component={Todos}/>
-                    <Route exact path="/todo" component={Todo}/>
+                    <Route exact path="/" component={Navigator}/>
+                    <Route exact path="/todo" component={Navigator}/>
                     <Route path="/login" component={Login}/>
                 </div>
             </BrowserRouter>
