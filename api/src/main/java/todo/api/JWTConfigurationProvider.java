@@ -24,7 +24,7 @@ public class JWTConfigurationProvider {
     private String publickeyDir;
 
     @Produces
-    Optional<JWTAuthContextInfo> getOptionalContextInfo() throws Exception {
+    public Optional<JWTAuthContextInfo> getOptionalContextInfo() throws Exception {
         val pubFile = Paths.get(publickeyDir, "todo_rsa.pub").toFile();
         val publicKeyPEM = FileUtils.readFileToString(pubFile, StandardCharsets.UTF_8)
                 .replaceAll("-----BEGIN (.*)-----", "")

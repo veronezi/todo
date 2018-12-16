@@ -6,7 +6,7 @@ import lombok.var;
 import java.util.ServiceLoader;
 
 class ServiceGetter {
-    static final ServicesProvider SERVICES;
+    public static final ServicesProvider SERVICES;
 
     static {
         val loaded = ServiceLoader.load(ServicesProvider.class).iterator();

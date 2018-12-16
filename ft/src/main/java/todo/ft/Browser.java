@@ -28,11 +28,11 @@ public class Browser implements Closeable {
         // singleton
     }
 
-    static Browser getInstance() {
+    public static Browser getInstance() {
         return INSTANCE;
     }
 
-    WebDriver getDriver(boolean newBrowser) {
+    public WebDriver getDriver(boolean newBrowser) {
         synchronized (lock) {
             if (newBrowser) {
                 this.close();
@@ -55,7 +55,7 @@ public class Browser implements Closeable {
         return driver;
     }
 
-    WebDriver getDriver() {
+    public WebDriver getDriver() {
         return getDriver(false);
     }
 

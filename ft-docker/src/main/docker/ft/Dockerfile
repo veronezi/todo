@@ -1,3 +1,4 @@
+FROM dockerize AS dockerize
 FROM openjdk:${openjdk.version}
 
 USER root
@@ -6,7 +7,7 @@ RUN mkdir -p /opt
 WORKDIR /opt
 
 RUN apt-get update
-RUN apt-get install -y bash
+RUN apt-get install -y bash=4.4-5
 
 RUN curl -s -o chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN apt-get update

@@ -1,3 +1,4 @@
+FROM veronezi/todo-auth-keys AS keys
 FROM veronezi/sample-tomee:0.0.1-b10
 
 COPY --chown=tomee:tomee postgresql.${postgres.driver.version}.jar /opt/tomee/lib/
@@ -9,7 +10,7 @@ COPY --chown=tomee:tomee tomee.xml /opt/tomee/conf/
 
 RUN mkdir -p /opt/keys/public
 ENV PUBLIC_KEY_DIR=/opt/keys/public
-COPY --chown=tomee:tomee --from=veronezi/todo-auth-keys /opt/keys/publickey.pem /opt/keys/public/todo_rsa.pub
+COPY --chown=tomee:tomee --from=keys /opt/keys/publickey.pem /opt/keys/public/todo_rsa.pub
 
 WORKDIR /opt/tomee/
 
