@@ -1,4 +1,4 @@
-FROM veronezi/todo-auth-keys AS keys
+FROM veronezi/todo-auth-keys:latest AS keys
 FROM veronezi/sample-tomee:0.0.1-b10
 
 COPY --chown=tomee:tomee postgresql.${postgres.driver.version}.jar /opt/tomee/lib/

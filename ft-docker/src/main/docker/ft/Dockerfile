@@ -1,4 +1,4 @@
-FROM dockerize AS dockerize
+FROM dockerize:latest AS dockerize
 FROM openjdk:${openjdk.version}
 
 USER root
