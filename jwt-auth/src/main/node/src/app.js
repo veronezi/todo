@@ -6,12 +6,8 @@ const fs = require('fs');
 
 const jsonParser = bodyParser.json();
 
-const getKeyPath = (envVar, fileName) => {
-    let fileType = process.env[envVar];
-    return path.resolve(fileType, fileName);
-};
-const publicKeyPath = getKeyPath('PUBLIC_KEY_DIR', 'todo_rsa.pub');
-const privateKeyPath = getKeyPath('PRIVATE_KEY_DIR', 'todo_rsa');
+const publicKeyPath = path.resolve(process.env.PUBLIC_KEY_DIR, 'todo_rsa.pub');
+const privateKeyPath = path.resolve(process.env.PRIVATE_KEY_DIR, 'todo_rsa');
 
 const app = express();
 const port = 3000;
