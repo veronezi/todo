@@ -6,7 +6,10 @@ const fs = require('fs');
 
 const jsonParser = bodyParser.json();
 
-const getKeyPath = (envVar, fileName) => path.resolve(process.env[envVar], fileName);
+const getKeyPath = (envVar, fileName) => {
+    let fileType = process.env[envVar];
+    return path.resolve(fileType, fileName);
+};
 const publicKeyPath = getKeyPath('PUBLIC_KEY_DIR', 'todo_rsa.pub');
 const privateKeyPath = getKeyPath('PRIVATE_KEY_DIR', 'todo_rsa');
 
