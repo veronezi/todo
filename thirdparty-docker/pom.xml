@@ -25,7 +25,7 @@
                             <resources>
                                 <resource>
                                     <directory>${project.basedir}/src/main/docker</directory>
-                                    <filtering>true</filtering>
+                                    <filtering>false</filtering>
                                 </resource>
                             </resources>
                         </configuration>
@@ -48,7 +48,9 @@
                                 <image>
                                     <name>dockerize</name>
                                     <build>
-                                        <filter>false</filter>
+                                        <tags>
+                                            <tag>${project.version}</tag>
+                                        </tags>
                                         <dockerFileDir>${project.build.directory}/docker-build/dockerize</dockerFileDir>
                                     </build>
                                 </image>

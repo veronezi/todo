@@ -1,7 +1,9 @@
-FROM veronezi/todo-auth-keys:latest AS keys
+ARG VERSION
+ARG POSTGRES_VERSION
+FROM veronezi/todo-auth-keys:${VERSION} AS keys
 FROM veronezi/sample-tomee:0.0.1-b10
 
-COPY --chown=tomee:tomee postgresql.${postgres.driver.version}.jar /opt/tomee/lib/
+COPY --chown=tomee:tomee postgresql.${POSTGRES_VERSION}.jar /opt/tomee/lib/
 
 COPY --chown=tomee:tomee ROOT.war /opt/tomee/webapps/
 COPY --chown=tomee:tomee tomcat-users.xml /opt/tomee/conf/

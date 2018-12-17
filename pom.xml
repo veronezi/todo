@@ -26,6 +26,11 @@
         <mp-config.version>1.2</mp-config.version>
 
         <headless>true</headless>
+
+        <VERSION>${project.version}</VERSION>
+        <POSTGRES_VERSION>${postgres.driver.version}</POSTGRES_VERSION>
+        <NODE_VERSION>${node.version}</NODE_VERSION>
+        <DOCKERIZE_VERSION>v${dockerize_version}</DOCKERIZE_VERSION>
     </properties>
     <dependencyManagement>
         <dependencies>

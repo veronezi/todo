@@ -51,7 +51,7 @@
                             <resources>
                                 <resource>
                                     <directory>${project.basedir}/src/main/docker</directory>
-                                    <filtering>true</filtering>
+                                    <filtering>false</filtering>
                                 </resource>
                             </resources>
                         </configuration>
@@ -115,7 +115,9 @@
                                 <image>
                                     <name>veronezi/todo-api</name>
                                     <build>
-                                        <filter>false</filter>
+                                        <tags>
+                                            <tag>${project.version}</tag>
+                                        </tags>
                                         <dockerFileDir>${project.build.directory}/docker-build/api</dockerFileDir>
                                     </build>
                                 </image>
