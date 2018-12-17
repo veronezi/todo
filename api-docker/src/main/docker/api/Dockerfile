@@ -1,7 +1,11 @@
-FROM veronezi/todo-auth-keys:latest AS keys
-FROM veronezi/sample-tomee:0.0.1-b10
+ARG VERSION
+ARG POSTGRES_VERSION
+ARG STABLE_VERSION_TOMEE
 
-COPY --chown=tomee:tomee postgresql.${postgres.driver.version}.jar /opt/tomee/lib/
+FROM veronezi/todo-auth-keys:${VERSION} AS keys
+FROM veronezi/sample-tomee:${STABLE_VERSION_TOMEE}
+
+COPY --chown=tomee:tomee postgresql.${POSTGRES_VERSION}.jar /opt/tomee/lib/
 
 COPY --chown=tomee:tomee ROOT.war /opt/tomee/webapps/
 COPY --chown=tomee:tomee tomcat-users.xml /opt/tomee/conf/
@@ -13,6 +17,13 @@ ENV PUBLIC_KEY_DIR=/opt/keys/public
 COPY --chown=tomee:tomee --from=keys /opt/keys/publickey.pem /opt/keys/public/todo_rsa.pub
 
 WORKDIR /opt/tomee/
+
+ENV CATALINA_OPTS -Xms128m -Xmx512m
+ENV DB_URL db:5432
+ENV DB_USR todo_user
+ENV DB_PWD todo_pass
+ENV DB_NAME todo
+ENV JWT_AUTH_URI http://auth:3000/auth
 
 COPY --chown=tomee:tomee start.sh .
 RUN chmod u+x start.sh

@@ -39,7 +39,7 @@
                             <resources>
                                 <resource>
                                     <directory>${project.basedir}/src/main/docker</directory>
-                                    <filtering>true</filtering>
+                                    <filtering>false</filtering>
                                 </resource>
                             </resources>
                         </configuration>
@@ -83,10 +83,14 @@
                         <phase>package</phase>
                         <configuration>
                             <verbose>true</verbose>
+
                             <images>
                                 <image>
                                     <name>veronezi/todo-auth-keys</name>
                                     <build>
+                                        <tags>
+                                            <tag>${project.version}</tag>
+                                        </tags>
                                         <filter>false</filter>
                                         <dockerFileDir>${project.build.directory}/docker-build/auth</dockerFileDir>
                                         <dockerFile>keys.dockerfile</dockerFile>
@@ -95,7 +99,9 @@
                                 <image>
                                     <name>veronezi/todo-auth</name>
                                     <build>
-                                        <filter>false</filter>
+                                        <tags>
+                                            <tag>${project.version}</tag>
+                                        </tags>
                                         <dockerFileDir>${project.build.directory}/docker-build/auth</dockerFileDir>
                                     </build>
                                 </image>

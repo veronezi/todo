@@ -1,12 +1,17 @@
-FROM node:${node.version}-alpine AS todo-ui-build
+ARG VERSION
+ARG NODE_VERSION
+
+FROM dockerize:${VERSION} AS dockerz
+FROM veronezi/todo-auth-keys:${VERSION} AS keys
+FROM node:${NODE_VERSION}-alpine AS todo-ui-build
 
 USER root
 
 RUN mkdir -p /opt/auth
 RUN mkdir -p /opt/keys/private
 RUN mkdir -p /opt/keys/public
-COPY --from=veronezi/todo-auth-keys /opt/keys/privatekey.pem /opt/keys/private/todo_rsa
-COPY --from=veronezi/todo-auth-keys /opt/keys/publickey.pem /opt/keys/public/todo_rsa.pub
+COPY --from=keys /opt/keys/privatekey.pem /opt/keys/private/todo_rsa
+COPY --from=keys /opt/keys/publickey.pem /opt/keys/public/todo_rsa.pub
 WORKDIR /opt/auth
 
 RUN chown node:node -R /opt
@@ -15,7 +20,7 @@ ENV PUBLIC_KEY_DIR=/opt/keys/public
 ENV PRIVATE_KEY_DIR=/opt/keys/private
 
 RUN apk add --no-cache bash
-COPY --from=dockerize /usr/local/bin/dockerize /usr/local/bin/
+COPY --from=dockerz /usr/local/bin/dockerize /usr/local/bin/
 
 USER node
 
@@ -25,7 +30,7 @@ RUN chmod +x run.sh
 
 WORKDIR /opt/auth
 
-COPY --chown=node:node todo-auth-${project.version} .
+COPY --chown=node:node todo-auth-${VERSION} .
 
 RUN npm install
 RUN npm run-script test

@@ -1,5 +1,9 @@
-FROM dockerize:latest AS dockerize
-FROM openjdk:${openjdk.version}
+ARG VERSION
+ARG OPENJKD_VERSION
+ARG CHROME_DRIVER_VERSION
+
+FROM dockerize:${VERSION} AS dockerz
+FROM openjdk:${OPENJKD_VERSION}
 
 USER root
 
@@ -14,11 +18,11 @@ RUN apt-get update
 RUN dpkg -i chrome.deb; apt-get -fy install
 RUN rm chrome.deb
 
-COPY --from=dockerize /usr/local/bin/dockerize /usr/local/bin/
+COPY --from=dockerz /usr/local/bin/dockerize /usr/local/bin/
 
-RUN mkdir -p /root/.m2/repository/webdriver/chromedriver/linux64/${chromedriver.version}/
-WORKDIR /root/.m2/repository/webdriver/chromedriver/linux64/${chromedriver.version}/
-RUN curl -s -o chromedriver.zip https://chromedriver.storage.googleapis.com/${chromedriver.version}/chromedriver_linux64.zip
+RUN mkdir -p "/root/.m2/repository/webdriver/chromedriver/linux64/${CHROME_DRIVER_VERSION}/"
+WORKDIR /root/.m2/repository/webdriver/chromedriver/linux64/${CHROME_DRIVER_VERSION}/
+RUN curl -s -o chromedriver.zip "https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip"
 RUN unzip chromedriver.zip && rm chromedriver.zip && ls -l
 
 WORKDIR /opt
