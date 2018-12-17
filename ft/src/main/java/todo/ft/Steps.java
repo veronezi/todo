@@ -26,7 +26,7 @@ import static org.assertj.core.api.Fail.fail;
 @Log
 public class Steps implements En {
     private static final Map<String, Object> NOTEBOOK = new HashMap<>();
-    private static String userName = "jdoe";
+    private String userName = "jdoe";
 
     private String getEndpointUrl(String path) {
         return "http://" + ServiceGetter.SERVICES.getApiHost() + ":" + ServiceGetter.SERVICES.getApiPort() + path;
