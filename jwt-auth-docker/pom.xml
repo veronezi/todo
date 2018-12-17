@@ -99,6 +99,9 @@
                                 <image>
                                     <name>veronezi/todo-auth</name>
                                     <build>
+                                        <tags>
+                                            <tag>${project.version}</tag>
+                                        </tags>
                                         <dockerFileDir>${project.build.directory}/docker-build/auth</dockerFileDir>
                                     </build>
                                 </image>

@@ -20,12 +20,6 @@ services:
     - "8080"
     environment:
     - WAIT_FOR=db:5432,auth:3000
-    - CATALINA_OPTS=-Xms128m -Xmx512m
-    - DB_URL=db:5432
-    - DB_USR=todo_user
-    - DB_PWD=todo_pass
-    - DB_NAME=todo
-    - JWT_AUTH_URI=http://auth:3000/auth
 
   db:
     image: postgres:10.4

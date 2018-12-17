@@ -28,9 +28,12 @@
         <headless>true</headless>
 
         <VERSION>${project.version}</VERSION>
+        <STABLE_VERSION_TOMEE>0.0.1-b10</STABLE_VERSION_TOMEE>
         <POSTGRES_VERSION>${postgres.driver.version}</POSTGRES_VERSION>
         <NODE_VERSION>${node.version}</NODE_VERSION>
         <DOCKERIZE_VERSION>v${dockerize_version}</DOCKERIZE_VERSION>
+        <OPENJKD_VERSION>${openjdk.version}</OPENJKD_VERSION>
+        <CHROME_DRIVER_VERSION>${chromedriver.version}</CHROME_DRIVER_VERSION>
     </properties>
     <dependencyManagement>
         <dependencies>

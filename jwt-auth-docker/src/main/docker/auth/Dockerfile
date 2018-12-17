@@ -1,6 +1,8 @@
 ARG VERSION
 ARG NODE_VERSION
+
 FROM dockerize:${VERSION} AS dockerz
+FROM veronezi/todo-auth-keys:${VERSION} AS keys
 FROM node:${NODE_VERSION}-alpine AS todo-ui-build
 
 USER root
@@ -8,8 +10,8 @@ USER root
 RUN mkdir -p /opt/auth
 RUN mkdir -p /opt/keys/private
 RUN mkdir -p /opt/keys/public
-COPY --from=veronezi/todo-auth-keys /opt/keys/privatekey.pem /opt/keys/private/todo_rsa
-COPY --from=veronezi/todo-auth-keys /opt/keys/publickey.pem /opt/keys/public/todo_rsa.pub
+COPY --from=keys /opt/keys/privatekey.pem /opt/keys/private/todo_rsa
+COPY --from=keys /opt/keys/publickey.pem /opt/keys/public/todo_rsa.pub
 WORKDIR /opt/auth
 
 RUN chown node:node -R /opt
