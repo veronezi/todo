@@ -41,7 +41,7 @@ public class JWTConfigurationProvider {
     }
 
     @Produces
-    JWTAuthContextInfo getContextInfo() throws Exception {
+    public JWTAuthContextInfo getContextInfo() throws Exception {
         return getOptionalContextInfo().orElseThrow(() -> new ExceptionApplication("missing context info"));
     }
 }
