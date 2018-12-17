@@ -4,18 +4,17 @@ set -e
 function deploy_docker_image () {
     if [ "$TRAVIS_BRANCH" = "master" ]; then
         echo "deploying docker image veronezi/$1:$2-b$3"
-        docker push $1:$2-b$3
+        docker push $1:$TODO_VERSION-b$TRAVIS_BUILD_NUMBER
         docker push $1
     else
-       echo "not building master. we wont deploy the docker images"
-       docker push $1:$2-rc$3
+       echo "not building master. we wont deploy the docker images."
     fi
 }
 
-deploy_docker_image veronezi/todo-static $TODO_VERSION $TRAVIS_BUILD_NUMBER
-deploy_docker_image veronezi/todo-auth $TODO_VERSION $TRAVIS_BUILD_NUMBER
-deploy_docker_image veronezi/todo-facade $TODO_VERSION $TRAVIS_BUILD_NUMBER
-deploy_docker_image veronezi/todo-api $TODO_VERSION $TRAVIS_BUILD_NUMBER
-deploy_docker_image veronezi/todo-ft $TODO_VERSION $TRAVIS_BUILD_NUMBER
+deploy_docker_image veronezi/todo-static
+deploy_docker_image veronezi/todo-auth
+deploy_docker_image veronezi/todo-facade
+deploy_docker_image veronezi/todo-api
+deploy_docker_image veronezi/todo-ft
 
 echo "binaries uploaded"
