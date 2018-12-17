@@ -1,6 +1,6 @@
 ARG VERSION
 ARG NODE_VERSION
-FROM dockerize:${VERSION}-alpine AS dockerz
+FROM dockerize:${VERSION} AS dockerz
 FROM node:${NODE_VERSION}-alpine AS todo-ui-build
 
 USER root
