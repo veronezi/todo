@@ -8,6 +8,7 @@ import CardContent from "@material-ui/core/CardContent/CardContent";
 import CardActions from "@material-ui/core/CardActions/CardActions";
 import withStyles from "@material-ui/core/styles/withStyles";
 import grey from '@material-ui/core/colors/grey';
+import classNames from 'classnames';
 
 const styles = theme => ({
     theme: {
@@ -62,7 +63,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="login">
+            <div className={classNames("login", "content")}>
                 <Card className={this.props.classes.theme}>
                     <CardContent className={"fields"}>
                         <TextField className="field"

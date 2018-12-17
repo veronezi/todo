@@ -36,12 +36,14 @@ html, body
   display: flex
   flex-direction: column
   justify-content: center
-  align-items: center
+  &.content
+    align-items: center
   > div
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
+    max-width: 400px
 
   div.fields
     display: flex
