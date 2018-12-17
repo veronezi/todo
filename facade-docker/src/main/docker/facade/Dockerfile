@@ -1,6 +1,10 @@
+ARG VERSION
+
+FROM dockerize:${VERSION} AS dockerz
 FROM httpd:2.4.34-alpine
+
 RUN apk add --no-cache bash
-COPY --from=dockerize /usr/local/bin/dockerize /usr/local/bin/
+COPY --from=dockerz /usr/local/bin/dockerize /usr/local/bin/
 
 COPY httpd.conf /usr/local/apache2/conf/
 COPY httpd-vhosts.conf /usr/local/apache2/conf/extra/
