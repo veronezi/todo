@@ -3,7 +3,7 @@ set -e
 
 function deploy_docker_image () {
     if [ "$TRAVIS_BRANCH" = "master" ]; then
-        echo "deploying docker image veronezi/$1:$2-b$3"
+        echo "deploying docker image veronezi/$1:$TODO_VERSION-b$TRAVIS_BUILD_NUMBER"
         docker push $1:$TODO_VERSION-b$TRAVIS_BUILD_NUMBER
         docker push $1
     else
