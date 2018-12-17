@@ -10,7 +10,7 @@ class Navigator extends Component {
         return (
             <Route render={({location}) => (
                 <TransitionGroup>
-                    <CSSTransition key={location.key} timeout={150} classNames="fade">
+                    <CSSTransition key={location.key} timeout={300} classNames="fade">
                         <Switch location={location}>
                             <Route exact path="/" component={Todos}/>
                             <Route path="/todo" component={Todo}/>
