@@ -24,7 +24,7 @@ public class ServicesContainers implements ServicesProvider {
             dcFile = File.createTempFile("docker-compose", ".yaml");
             FileUtils.copyInputStreamToFile(ServicesContainers.class.getResourceAsStream("/dc-tests.yaml"), dcFile);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new TestException(e);
         }
         this.stack = new DockerComposeContainer(dcFile)
                 .withPull(false)
