@@ -7,7 +7,7 @@ function deploy_docker_image () {
         docker push $1:$2-b$3
         docker push $1
     else
-        echo "deploying docker image veronezi/$1:$2-rc$3"
+       echo "not building master. we wont deploy the docker images"
        docker push $1:$2-rc$3
     fi
 }

@@ -13,6 +13,21 @@ html, body
   flex-direction: column
   align-items: center
 
+.fade-appear, .fade-enter
+  opacity: 0
+  z-index: 1
+
+.fade-appear-active, .fade-enter.fade-enter-active
+  opacity: 1
+  transition: opacity 150ms linear 75ms
+
+.fade-exit
+  opacity: 1
+
+.fade-exit.fade-exit-active
+  opacity: 0
+  transition: opacity 75ms linear
+
 .App
   $my-width: 600px
   width: $my-width
@@ -24,11 +39,15 @@ html, body
     display: flex
     justify-content: center
     align-items: stretch
+    position: relative
 
 .page
   width: 100%
   display: flex
   flex-direction: column
+  position: absolute
+  top: 0
+  bottom: 0
 
 .login
   width: 100vw
