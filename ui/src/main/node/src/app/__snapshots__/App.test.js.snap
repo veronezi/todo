@@ -31,7 +31,7 @@ exports[`renders App without crashing 1`] = `
               />
             </svg>
             <h4
-              className="MuiTypography-root-12 MuiTypography-h4-27 Connect-withRouter-Todos---light-1"
+              className="MuiTypography-root-12 MuiTypography-h4-27 MuiTypography-colorPrimary-42 Connect-withRouter-Todos---light-1"
             >
               Your Things
             </h4>

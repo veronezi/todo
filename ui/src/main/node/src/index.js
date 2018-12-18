@@ -10,11 +10,13 @@ import "typeface-roboto";
 
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import appColor from '@material-ui/core/colors/grey';
+import primaryColor from '@material-ui/core/colors/teal';
+import secondaryColor from '@material-ui/core/colors/green';
 
 const theme = createMuiTheme({
     palette: {
-        primary: appColor
+        primary: primaryColor,
+        secondary: secondaryColor
     },
     typography: {
         useNextVariants: true

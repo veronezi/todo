@@ -9,12 +9,11 @@ import {connect} from "react-redux";
 import Typography from "@material-ui/core/Typography/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
-import grey from '@material-ui/core/colors/grey';
 import {withRouter} from "react-router-dom";
 
-const styles = ({
+const styles = theme => ({
     "content": {
-        backgroundColor: grey[100]
+        backgroundColor: theme.palette.secondary[100]
     }
 });
 

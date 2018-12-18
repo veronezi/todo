@@ -7,7 +7,6 @@ import Card from "@material-ui/core/Card/Card";
 import CardContent from "@material-ui/core/CardContent/CardContent";
 import CardActions from "@material-ui/core/CardActions/CardActions";
 import withStyles from "@material-ui/core/styles/withStyles";
-import grey from '@material-ui/core/colors/grey';
 import classNames from 'classnames';
 
 const styles = theme => ({
@@ -15,7 +14,7 @@ const styles = theme => ({
         backgroundColor: theme.palette.primary[50]
     },
     dark: {
-        color: grey.A700
+        color: theme.palette.secondary.A700
     }
 });
 

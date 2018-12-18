@@ -3,7 +3,6 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Login from './Login';
 import Navigator from './Navigator';
 import withStyles from "@material-ui/core/styles/withStyles";
-import grey from '@material-ui/core/colors/grey';
 
 const styles = theme => ({
     "@global": {
@@ -11,7 +10,7 @@ const styles = theme => ({
             backgroundColor: theme.palette.primary.dark
         },
         ".page": {
-            backgroundColor: grey[50]
+            backgroundColor: theme.palette.secondary[50]
         }
     }
 });

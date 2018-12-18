@@ -12,7 +12,6 @@ import TodosDates from './TodosDates';
 import Grid from "@material-ui/core/Grid/Grid";
 import Typography from "@material-ui/core/Typography/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
-import grey from '@material-ui/core/colors/grey';
 import classNames from "classnames";
 import hexRgb from 'hex-rgb';
 import {withRouter} from "react-router-dom";
@@ -21,7 +20,7 @@ const styles = theme => {
     const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
     return {
         light: {
-            color: grey[50]
+            color: theme.palette.secondary[50]
         },
         title: {
             backgroundColor: `rgba(${backgroundColorRgb.red}, ${backgroundColorRgb.green}, ${backgroundColorRgb.blue}, 0.5)`
@@ -59,7 +58,7 @@ class Todos extends Component {
                     <div className={classNames(this.props.classes.title, 'title')}>
                         <div>
                             <Subject className={this.props.classes.light}/>
-                            <Typography className={this.props.classes.light} variant="h4">Your Things</Typography>
+                            <Typography className={this.props.classes.light} variant="h4" color={"primary"}>Your Things</Typography>
                             <TodosDates className={this.props.classes.light}/>
                         </div>
                         <Loading/>

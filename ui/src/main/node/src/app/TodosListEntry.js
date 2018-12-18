@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid/Grid";
 import Divider from "@material-ui/core/Divider/Divider";
 import Avatar from "@material-ui/core/Avatar/Avatar";
 import Typography from "@material-ui/core/Typography/Typography";
+import { withTheme } from '@material-ui/core/styles';
 
 class TodosListEntry extends Component {
     handleToggle = value => () => {
@@ -30,7 +31,7 @@ class TodosListEntry extends Component {
                 <div className={"content"}>
                     <Avatar className={"icon"}>
                         <ReminderIcon color={"primary"}/>
-                        <CheckIcon color={"secondary"} className={classNames({
+                        <CheckIcon color={"action"} className={classNames({
                             'done': todo.done,
                             'check': true
                         })}/>
@@ -57,4 +58,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodosListEntry);
+export default withTheme()(connect(mapStateToProps, mapDispatchToProps)(TodosListEntry));
