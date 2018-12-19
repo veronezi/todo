@@ -13,12 +13,6 @@ import {withRouter} from "react-router-dom";
 import pageSass from "./styles/Page.module.sass";
 import todoSass from "./styles/Todo.module.sass";
 
-const styles = theme => ({
-    "content": {
-        backgroundColor: theme.palette.secondary[50]
-    }
-});
-
 class Todo extends Component {
     state = {
         newTodo: ''
@@ -76,4 +70,8 @@ class Todo extends Component {
     }
 }
 
-export default withStyles(styles)(connect()(withRouter(Todo)));
+export default withStyles(theme => ({
+    "content": {
+        backgroundColor: theme.palette.secondary[50]
+    }
+}))(connect()(withRouter(Todo)));

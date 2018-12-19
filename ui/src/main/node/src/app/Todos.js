@@ -18,21 +18,6 @@ import pageSass from "./styles/Page.module.sass";
 import todosSass from "./styles/Todos.module.sass";
 import Fab from "@material-ui/core/Fab";
 
-const styles = theme => {
-    const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
-    return {
-        light: {
-            color: theme.palette.secondary[50]
-        },
-        title: {
-            backgroundColor: `rgba(${backgroundColorRgb.red}, ${backgroundColorRgb.green}, ${backgroundColorRgb.blue}, 0.5)`
-        },
-        content: {
-            backgroundColor: theme.palette.secondary[50]
-        }
-    };
-};
-
 class Todos extends Component {
 
     updateTitle() {
@@ -57,21 +42,23 @@ class Todos extends Component {
     };
 
     render() {
+        let jss = this.props.classes;
         return (
             <div className={classNames(todosSass.todos, pageSass.page)}>
                 <div className={todosSass.header}>
-                    <div className={classNames(this.props.classes.title, todosSass.title)}>
+                    <div className={classNames(jss.title, todosSass.title)}>
                         <div>
-                            <Subject className={this.props.classes.light}/>
-                            <Typography className={this.props.classes.light} variant="h4" color={"primary"}>Your
-                                Things</Typography>
-                            <TodosDates className={this.props.classes.light}/>
+                            <Subject className={jss.light}/>
+                            <Typography className={jss.light} variant="h4" color={"primary"}>
+                                Your Things
+                            </Typography>
+                            <TodosDates/>
                         </div>
                         <Loading/>
                     </div>
                     <TodosNumbers/>
                 </div>
-                <div className={classNames(todosSass.content, this.props.classes.content)}>
+                <div className={classNames(todosSass.content, jss.content)}>
                     <Grid container direction="row" justify="center" alignItems="center">
                         {this.props.todos.map(todo => (<TodosListEntry todo={todo} key={todo.id}/>))}
                     </Grid>
@@ -97,4 +84,17 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(withRouter(Todos)));
+export default withStyles(theme => {
+    const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
+    return {
+        light: {
+            color: theme.palette.secondary[50]
+        },
+        title: {
+            backgroundColor: `rgba(${backgroundColorRgb.red}, ${backgroundColorRgb.green}, ${backgroundColorRgb.blue}, 0.5)`
+        },
+        content: {
+            backgroundColor: theme.palette.secondary[50]
+        }
+    };
+})(connect(mapStateToProps, mapDispatchToProps)(withRouter(Todos)));

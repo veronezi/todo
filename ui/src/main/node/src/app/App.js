@@ -5,14 +5,6 @@ import Navigator from './Navigator';
 import withStyles from "@material-ui/core/styles/withStyles";
 import sass from './styles/App.module.sass';
 
-const styles = theme => ({
-    "@global": {
-        "#root": {
-            backgroundColor: theme.palette.primary.dark
-        }
-    }
-});
-
 class App extends Component {
 
     render() {
@@ -27,4 +19,10 @@ class App extends Component {
     }
 }
 
-export default withStyles(styles)(App);
+export default withStyles(theme => ({
+    "@global": {
+        "#root": {
+            backgroundColor: theme.palette.primary.dark
+        }
+    }
+}))(App);

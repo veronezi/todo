@@ -4,7 +4,7 @@ import Todos from "./Todos";
 import Todo from "./Todo";
 import sass from "./styles/Page.module.sass";
 
-import {CSSTransition, TransitionGroup,} from 'react-transition-group';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 class Navigator extends Component {
     render() {

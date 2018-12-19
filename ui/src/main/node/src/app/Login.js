@@ -11,15 +11,6 @@ import sass from './styles/Login.module.sass';
 import Fab from "@material-ui/core/Fab/Fab";
 import Typography from "@material-ui/core/Typography";
 
-const styles = theme => ({
-    theme: {
-        backgroundColor: theme.palette.secondary[50]
-    },
-    hint: {
-        color: theme.palette.text.hint
-    }
-});
-
 class Login extends Component {
 
     state = {
@@ -63,9 +54,10 @@ class Login extends Component {
     };
 
     render() {
+        let jss = this.props.classes;
         return (
             <div className={classNames(sass.login, sass.content)}>
-                <Card className={this.props.classes.theme}>
+                <Card className={jss.theme}>
                     <CardContent className={sass.fields}>
                         <TextField className={"field"} label="Username"
                                    onChange={this.handleUsernameChange}
@@ -79,7 +71,7 @@ class Login extends Component {
                                    value={this.state.password}
                                    required
                         />
-                        <Typography variant="caption" className={classNames(this.props.classes.hint, sass.hint)} gutterBottom>
+                        <Typography variant="caption" className={classNames(jss.hint, sass.hint)} gutterBottom>
                             Hey, any username/password works here. This is just a demo. :)
                         </Typography>
                     </CardContent>
@@ -95,4 +87,11 @@ class Login extends Component {
     }
 }
 
-export default withStyles(styles)(Login);
+export default withStyles(theme => ({
+    theme: {
+        backgroundColor: theme.palette.secondary[50]
+    },
+    hint: {
+        color: theme.palette.text.hint
+    }
+}))(Login);

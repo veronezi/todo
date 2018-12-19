@@ -9,7 +9,6 @@ import Grid from "@material-ui/core/Grid/Grid";
 import Divider from "@material-ui/core/Divider/Divider";
 import Avatar from "@material-ui/core/Avatar/Avatar";
 import Typography from "@material-ui/core/Typography/Typography";
-import {withTheme} from '@material-ui/core/styles';
 import sass from "./styles/TodosListEntry.module.sass";
 
 class TodosListEntry extends Component {
@@ -29,7 +28,7 @@ class TodosListEntry extends Component {
         let todo = this.props.todo;
         return (
             <Grid item xs={12} sm={12} onClick={this.handleToggle(todo)}
-                  className={classNames(sass["li"], "list-entry")}>
+                  className={classNames(sass.li, "list-entry")}>
                 <div className={sass.content}>
                     <Avatar className={sass.icon}>
                         <ReminderIcon color={"primary"}/>
@@ -60,4 +59,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withTheme()(connect(mapStateToProps, mapDispatchToProps)(TodosListEntry));
+export default connect(mapStateToProps, mapDispatchToProps)(TodosListEntry);

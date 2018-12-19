@@ -7,25 +7,16 @@ import hexRgb from "hex-rgb";
 import classNames from "classnames";
 import sass from "./styles/TodosNumbers.module.sass";
 
-const styles = theme => {
-    const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
-    return {
-        value: {
-            color: theme.palette.secondary[50]
-        },
-        title: {
-            backgroundColor: `rgba(${backgroundColorRgb.red}, ${backgroundColorRgb.green}, ${backgroundColorRgb.blue}, 0.6)`
-        }
-    };
-};
-
 class TodosNumbers extends Component {
     render() {
+        let jss = this.props.classes;
         return (
-            <div className={classNames(sass.numbers, this.props.classes.title)}>
+            <div className={classNames(sass.numbers, jss.title)}>
                 <div className={sass.percentage}>
                     <CircularProgress variant="static" value={this.props.percentage}/>
-                    <Typography variant="caption" className={classNames(this.props.classes.value, sass.value)}>{this.props.percentage}% done</Typography>
+                    <Typography variant="caption" className={classNames(jss.value, sass.value)}>
+                        {this.props.percentage}% done
+                    </Typography>
                 </div>
             </div>
         );
@@ -48,4 +39,14 @@ const mapDispatchToProps = () => {
     return {};
 };
 
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(TodosNumbers));
+export default withStyles(theme => {
+    const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
+    return {
+        value: {
+            color: theme.palette.secondary[50]
+        },
+        title: {
+            backgroundColor: `rgba(${backgroundColorRgb.red}, ${backgroundColorRgb.green}, ${backgroundColorRgb.blue}, 0.6)`
+        }
+    };
+})(connect(mapStateToProps, mapDispatchToProps)(TodosNumbers));
