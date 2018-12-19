@@ -29,7 +29,7 @@ class TodosListEntry extends Component {
         let todo = this.props.todo;
         return (
             <Grid item xs={12} sm={12} onClick={this.handleToggle(todo)}
-                  className={classNames(sass["todos-list-entry"], "list-entry")}>
+                  className={classNames(sass["li"], "list-entry")}>
                 <div className={sass.content}>
                     <Avatar className={sass.icon}>
                         <ReminderIcon color={"primary"}/>

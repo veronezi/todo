@@ -54,7 +54,7 @@ class Todo extends Component {
                 <Loading/>
                 <div className={classNames(this.props.classes.content, todoSass.content)}>
                     <div className={todoSass.header}>
-                        <Back className={todoSass["back-button"]} onClick={this.handleGoBack}/>
+                        <Back className={todoSass.back} onClick={this.handleGoBack}/>
                         <Typography variant="h6">Add new thing</Typography>
                         <DashboardIcon/>
                     </div>

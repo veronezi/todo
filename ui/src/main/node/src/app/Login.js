@@ -9,13 +9,14 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from 'classnames';
 import sass from './styles/Login.module.sass';
 import Fab from "@material-ui/core/Fab/Fab";
+import Typography from "@material-ui/core/Typography";
 
 const styles = theme => ({
     theme: {
-        backgroundColor: theme.palette.primary[50]
+        backgroundColor: theme.palette.secondary[50]
     },
-    dark: {
-        color: theme.palette.secondary.A700
+    hint: {
+        color: theme.palette.text.hint
     }
 });
 
@@ -78,7 +79,9 @@ class Login extends Component {
                                    value={this.state.password}
                                    required
                         />
-                        <span className={this.props.classes.dark}>Hey, any username/password works here. This is just a demo. :)</span>
+                        <Typography variant="caption" className={classNames(this.props.classes.hint, sass.hint)} gutterBottom>
+                            Hey, any username/password works here. This is just a demo. :)
+                        </Typography>
                     </CardContent>
                     <CardActions>
                         <Fab disabled={this.state.username.trim() === '' || this.state.password.trim() === ''}

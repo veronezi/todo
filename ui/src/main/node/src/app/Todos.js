@@ -76,7 +76,7 @@ class Todos extends Component {
                         {this.props.todos.map(todo => (<TodosListEntry todo={todo} key={todo.id}/>))}
                     </Grid>
                 </div>
-                <Fab className={todosSass["add-todo-btn"]} color="primary" aria-label="Add"
+                <Fab className={todosSass.add} color="primary" aria-label="Add"
                      onClick={() => this.openTodoPage()}>
                     <AddIcon/>
                 </Fab>

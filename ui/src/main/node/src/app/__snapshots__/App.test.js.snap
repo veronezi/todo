@@ -2,7 +2,7 @@
 
 exports[`renders App without crashing 1`] = `
 <div
-  className="App"
+  className="application"
 >
   <div>
     <div
@@ -57,13 +57,13 @@ exports[`renders App without crashing 1`] = `
           </div>
         </div>
         <div
-          className="todos-numbers Connect-TodosNumbers--title-67"
+          className="numbers Connect-TodosNumbers--title-67"
         >
           <div
             className="percentage"
           >
             <div
-              aria-valuenow={NaN}
+              aria-valuenow={100}
               className="MuiCircularProgress-root-68 MuiCircularProgress-colorPrimary-71 MuiCircularProgress-static-69"
               role="progressbar"
               style={
@@ -88,7 +88,7 @@ exports[`renders App without crashing 1`] = `
                   style={
                     Object {
                       "strokeDasharray": "126.920",
-                      "strokeDashoffset": "NaNpx",
+                      "strokeDashoffset": "0.000px",
                     }
                   }
                 />
@@ -112,7 +112,7 @@ exports[`renders App without crashing 1`] = `
       </div>
       <button
         aria-label="Add"
-        className="MuiButtonBase-root-201 MuiButton-root-175 MuiButton-fab-192 MuiButton-contained-186 MuiButton-containedPrimary-187 MuiButton-raised-189 MuiButton-raisedPrimary-190 add-todo-btn"
+        className="MuiButtonBase-root-185 MuiFab-root-175 MuiFab-primary-177 add"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -129,7 +129,7 @@ exports[`renders App without crashing 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label-176"
+          className="MuiFab-label-176"
         >
           <svg
             aria-hidden="true"
@@ -148,7 +148,7 @@ exports[`renders App without crashing 1`] = `
           </svg>
         </span>
         <span
-          className="MuiTouchRipple-root-204"
+          className="MuiTouchRipple-root-188"
         />
       </button>
     </div>

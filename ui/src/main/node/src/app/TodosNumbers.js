@@ -22,7 +22,7 @@ const styles = theme => {
 class TodosNumbers extends Component {
     render() {
         return (
-            <div className={classNames(sass["todos-numbers"], this.props.classes.title)}>
+            <div className={classNames(sass.numbers, this.props.classes.title)}>
                 <div className={sass.percentage}>
                     <CircularProgress variant="static" value={this.props.percentage}/>
                     <Typography variant="caption" className={classNames(this.props.classes.value, sass.value)}>{this.props.percentage}% done</Typography>
