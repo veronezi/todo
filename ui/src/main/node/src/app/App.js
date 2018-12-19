@@ -4,6 +4,7 @@ import Login from './Login';
 import Navigator from './Navigator';
 import withStyles from "@material-ui/core/styles/withStyles";
 import sass from './styles/App.module.sass';
+console.log(sass);
 
 const styles = theme => ({
     "@global": {

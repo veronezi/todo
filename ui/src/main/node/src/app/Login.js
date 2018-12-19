@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import TextField from "@material-ui/core/TextField/TextField";
-import Button from "@material-ui/core/Button/Button";
 import CheckIcon from '@material-ui/icons/Check'
 import axios from 'axios';
 import Card from "@material-ui/core/Card/Card";
@@ -9,6 +8,7 @@ import CardActions from "@material-ui/core/CardActions/CardActions";
 import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from 'classnames';
 import sass from './styles/Login.module.sass';
+import Fab from "@material-ui/core/Fab/Fab";
 
 const styles = theme => ({
     theme: {
@@ -81,10 +81,10 @@ class Login extends Component {
                         <span className={this.props.classes.dark}>Hey, any username/password works here. This is just a demo. :)</span>
                     </CardContent>
                     <CardActions>
-                        <Button disabled={this.state.username.trim() === '' || this.state.password.trim() === ''}
-                                variant="fab" color="primary" aria-label="Login" onClick={() => this.handleLogin()}>
+                        <Fab disabled={this.state.username.trim() === '' || this.state.password.trim() === ''}
+                             color="primary" aria-label="Login" onClick={() => this.handleLogin()}>
                             <CheckIcon/>
-                        </Button>
+                        </Fab>
                     </CardActions>
                 </Card>
             </div>

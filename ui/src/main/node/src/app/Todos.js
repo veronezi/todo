@@ -6,7 +6,6 @@ import Subject from '@material-ui/icons/Subject';
 import AddIcon from '@material-ui/icons/Add';
 import {TOGGLE_TODO_STATUS, UPDATE_TODOS_LIST} from '../reducer';
 import Loading from './Loading';
-import Button from "@material-ui/core/Button/Button";
 import TodosListEntry from './TodosListEntry';
 import TodosDates from './TodosDates';
 import Grid from "@material-ui/core/Grid/Grid";
@@ -17,6 +16,7 @@ import hexRgb from 'hex-rgb';
 import {withRouter} from "react-router-dom";
 import pageSass from "./styles/Page.module.sass";
 import todosSass from "./styles/Todos.module.sass";
+import Fab from "@material-ui/core/Fab";
 
 const styles = theme => {
     const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
@@ -63,7 +63,8 @@ class Todos extends Component {
                     <div className={classNames(this.props.classes.title, todosSass.title)}>
                         <div>
                             <Subject className={this.props.classes.light}/>
-                            <Typography className={this.props.classes.light} variant="h4" color={"primary"}>Your Things</Typography>
+                            <Typography className={this.props.classes.light} variant="h4" color={"primary"}>Your
+                                Things</Typography>
                             <TodosDates className={this.props.classes.light}/>
                         </div>
                         <Loading/>
@@ -75,10 +76,10 @@ class Todos extends Component {
                         {this.props.todos.map(todo => (<TodosListEntry todo={todo} key={todo.id}/>))}
                     </Grid>
                 </div>
-                <Button className={todosSass["add-todo-btn"]} variant="fab" color="primary" aria-label="Add"
-                        onClick={() => this.openTodoPage()}>
+                <Fab className={todosSass["add-todo-btn"]} color="primary" aria-label="Add"
+                     onClick={() => this.openTodoPage()}>
                     <AddIcon/>
-                </Button>
+                </Fab>
             </div>
         );
     }
