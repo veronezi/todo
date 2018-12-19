@@ -43,10 +43,11 @@ class Todo extends Component {
     };
 
     render() {
+        let jss = this.props.classes;
         return (
             <div className={classNames(todoSass.todo, pageSass.page)}>
                 <Loading/>
-                <div className={classNames(this.props.classes.content, todoSass.content)}>
+                <div className={classNames(jss.content, todoSass.content)}>
                     <div className={todoSass.header}>
                         <Back className={todoSass.back} onClick={this.handleGoBack}/>
                         <Typography variant="h6">Add new thing</Typography>
