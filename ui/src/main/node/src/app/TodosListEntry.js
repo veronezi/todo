@@ -9,7 +9,8 @@ import Grid from "@material-ui/core/Grid/Grid";
 import Divider from "@material-ui/core/Divider/Divider";
 import Avatar from "@material-ui/core/Avatar/Avatar";
 import Typography from "@material-ui/core/Typography/Typography";
-import { withTheme } from '@material-ui/core/styles';
+import {withTheme} from '@material-ui/core/styles';
+import sass from "./styles/TodosListEntry.module.sass";
 
 class TodosListEntry extends Component {
     handleToggle = value => () => {
@@ -27,13 +28,14 @@ class TodosListEntry extends Component {
     render() {
         let todo = this.props.todo;
         return (
-            <Grid item xs={12} sm={12} onClick={this.handleToggle(todo)} className={classNames({'todos-list-entry': true, 'list-entry': true})}>
-                <div className={"content"}>
-                    <Avatar className={"icon"}>
+            <Grid item xs={12} sm={12} onClick={this.handleToggle(todo)}
+                  className={classNames(sass["todos-list-entry"], "list-entry")}>
+                <div className={sass.content}>
+                    <Avatar className={sass.icon}>
                         <ReminderIcon color={"primary"}/>
                         <CheckIcon color={"action"} className={classNames({
-                            'done': todo.done,
-                            'check': true
+                            [sass.done]: todo.done,
+                            [sass.check]: true
                         })}/>
                     </Avatar>
                     <Typography variant="body1">

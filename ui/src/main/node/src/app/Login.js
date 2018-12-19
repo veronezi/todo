@@ -8,6 +8,7 @@ import CardContent from "@material-ui/core/CardContent/CardContent";
 import CardActions from "@material-ui/core/CardActions/CardActions";
 import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from 'classnames';
+import sass from './styles/Login.module.sass';
 
 const styles = theme => ({
     theme: {
@@ -62,17 +63,15 @@ class Login extends Component {
 
     render() {
         return (
-            <div className={classNames("login", "content")}>
+            <div className={classNames(sass.login, sass.content)}>
                 <Card className={this.props.classes.theme}>
-                    <CardContent className={"fields"}>
-                        <TextField className="field"
-                                   label="Username"
+                    <CardContent className={sass.fields}>
+                        <TextField className={"field"} label="Username"
                                    onChange={this.handleUsernameChange}
                                    value={this.state.username}
                                    required
                         />
-                        <TextField className="field"
-                                   label="Password"
+                        <TextField className={"field"} label="Password"
                                    type="password"
                                    onChange={this.handlePasswordChange}
                                    onKeyPress={this.handlePasswordEnter}

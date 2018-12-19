@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import '../node_modules/lato-font/css/lato-font.min.css';
 import App from './app/App';
 import registerServiceWorker from './registerServiceWorker';
@@ -10,8 +10,8 @@ import "typeface-roboto";
 
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import primaryColor from '@material-ui/core/colors/teal';
-import secondaryColor from '@material-ui/core/colors/green';
+import primaryColor from '@material-ui/core/colors/indigo';
+import secondaryColor from '@material-ui/core/colors/red';
 
 const theme = createMuiTheme({
     palette: {

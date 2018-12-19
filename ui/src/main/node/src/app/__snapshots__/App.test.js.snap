@@ -17,7 +17,7 @@ exports[`renders App without crashing 1`] = `
           <div>
             <svg
               aria-hidden="true"
-              className="MuiSvgIcon-root-3 Connect-withRouter-Todos---light-1"
+              className="MuiSvgIcon-root-4 Connect-withRouter-Todos---light-1"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"
@@ -31,23 +31,23 @@ exports[`renders App without crashing 1`] = `
               />
             </svg>
             <h4
-              className="MuiTypography-root-12 MuiTypography-h4-27 MuiTypography-colorPrimary-42 Connect-withRouter-Todos---light-1"
+              className="MuiTypography-root-13 MuiTypography-h4-28 MuiTypography-colorPrimary-43 Connect-withRouter-Todos---light-1"
             >
               Your Things
             </h4>
             <h6
-              className="MuiTypography-root-12 MuiTypography-subtitle1-30 Connect-withRouter-Todos---light-1"
+              className="MuiTypography-root-13 MuiTypography-subtitle1-31 Connect-withRouter-Todos---light-1"
             >
               12/17/1995
             </h6>
           </div>
           <div
             aria-valuenow={100}
-            className="MuiLinearProgress-root-47 MuiLinearProgress-colorPrimary-48"
+            className="MuiLinearProgress-root-48 MuiLinearProgress-colorPrimary-49 MuiLinearProgress-determinate-51"
             role="progressbar"
           >
             <div
-              className="MuiLinearProgress-bar-55 MuiLinearProgress-barColorPrimary-56 MuiLinearProgress-bar1Determinate-59"
+              className="MuiLinearProgress-bar-58 MuiLinearProgress-barColorPrimary-59 MuiLinearProgress-bar1Determinate-62"
               style={
                 Object {
                   "transform": "scaleX(1)",
@@ -57,14 +57,14 @@ exports[`renders App without crashing 1`] = `
           </div>
         </div>
         <div
-          className="todos-numbers Connect-TodosNumbers--title-65"
+          className="todos-numbers Connect-TodosNumbers--title-67"
         >
           <div
             className="percentage"
           >
             <div
               aria-valuenow={100}
-              className="MuiCircularProgress-root-66 MuiCircularProgress-colorPrimary-69 MuiCircularProgress-static-67"
+              className="MuiCircularProgress-root-68 MuiCircularProgress-colorPrimary-71 MuiCircularProgress-static-69"
               role="progressbar"
               style={
                 Object {
@@ -75,11 +75,11 @@ exports[`renders App without crashing 1`] = `
               }
             >
               <svg
-                className="MuiCircularProgress-svg-71"
+                className="MuiCircularProgress-svg-73"
                 viewBox="22 22 44 44"
               >
                 <circle
-                  className="MuiCircularProgress-circle-72 MuiCircularProgress-circleStatic-73"
+                  className="MuiCircularProgress-circle-74 MuiCircularProgress-circleStatic-75"
                   cx={44}
                   cy={44}
                   fill="none"
@@ -95,7 +95,7 @@ exports[`renders App without crashing 1`] = `
               </svg>
             </div>
             <p
-              className="MuiTypography-root-12 MuiTypography-body1-21 Connect-TodosNumbers--value-64"
+              className="MuiTypography-root-13 MuiTypography-body1-22 Connect-TodosNumbers--value-66"
             >
               100
               % done
@@ -104,15 +104,15 @@ exports[`renders App without crashing 1`] = `
         </div>
       </div>
       <div
-        className="content"
+        className="content Connect-withRouter-Todos---content-3"
       >
         <div
-          className="MuiGrid-container-75 MuiGrid-align-items-xs-center-83 MuiGrid-justify-xs-center-92"
+          className="MuiGrid-container-78 MuiGrid-align-items-xs-center-86 MuiGrid-justify-xs-center-95"
         />
       </div>
       <button
         aria-label="Add"
-        className="MuiButtonBase-root-198 MuiButton-root-172 MuiButton-fab-189 MuiButton-contained-183 MuiButton-containedPrimary-184 MuiButton-raised-186 MuiButton-raisedPrimary-187 add-todo-btn"
+        className="MuiButtonBase-root-201 MuiButton-root-175 MuiButton-fab-192 MuiButton-contained-186 MuiButton-containedPrimary-187 MuiButton-raised-189 MuiButton-raisedPrimary-190 add-todo-btn"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -129,11 +129,11 @@ exports[`renders App without crashing 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label-173"
+          className="MuiButton-label-176"
         >
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-3"
+            className="MuiSvgIcon-root-4"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -148,7 +148,7 @@ exports[`renders App without crashing 1`] = `
           </svg>
         </span>
         <span
-          className="MuiTouchRipple-root-201"
+          className="MuiTouchRipple-root-204"
         />
       </button>
     </div>

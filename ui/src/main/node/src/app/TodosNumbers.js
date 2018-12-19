@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import hexRgb from "hex-rgb";
 import classNames from "classnames";
+import sass from "./styles/TodosNumbers.module.sass";
 
 const styles = theme => {
     const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
@@ -21,8 +22,8 @@ const styles = theme => {
 class TodosNumbers extends Component {
     render() {
         return (
-            <div className={classNames("todos-numbers", this.props.classes.title)}>
-                <div className="percentage">
+            <div className={classNames(sass["todos-numbers"], this.props.classes.title)}>
+                <div className={sass.percentage}>
                     <CircularProgress variant="static" value={this.props.percentage}/>
                     <Typography variant="body1" className={this.props.classes.value}>{this.props.percentage}%
                         done</Typography>

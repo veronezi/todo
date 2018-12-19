@@ -15,6 +15,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
 import hexRgb from 'hex-rgb';
 import {withRouter} from "react-router-dom";
+import pageSass from "./styles/Page.module.sass";
+import todosSass from "./styles/Todos.module.sass";
 
 const styles = theme => {
     const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
@@ -24,6 +26,9 @@ const styles = theme => {
         },
         title: {
             backgroundColor: `rgba(${backgroundColorRgb.red}, ${backgroundColorRgb.green}, ${backgroundColorRgb.blue}, 0.5)`
+        },
+        content: {
+            backgroundColor: theme.palette.secondary[50]
         }
     };
 };
@@ -53,9 +58,9 @@ class Todos extends Component {
 
     render() {
         return (
-            <div className="todos page">
-                <div className="header">
-                    <div className={classNames(this.props.classes.title, 'title')}>
+            <div className={classNames(todosSass.todos, pageSass.page)}>
+                <div className={todosSass.header}>
+                    <div className={classNames(this.props.classes.title, todosSass.title)}>
                         <div>
                             <Subject className={this.props.classes.light}/>
                             <Typography className={this.props.classes.light} variant="h4" color={"primary"}>Your Things</Typography>
@@ -65,12 +70,12 @@ class Todos extends Component {
                     </div>
                     <TodosNumbers/>
                 </div>
-                <div className={"content"}>
+                <div className={classNames(todosSass.content, this.props.classes.content)}>
                     <Grid container direction="row" justify="center" alignItems="center">
                         {this.props.todos.map(todo => (<TodosListEntry todo={todo} key={todo.id}/>))}
                     </Grid>
                 </div>
-                <Button className="add-todo-btn" variant="fab" color="primary" aria-label="Add"
+                <Button className={todosSass["add-todo-btn"]} variant="fab" color="primary" aria-label="Add"
                         onClick={() => this.openTodoPage()}>
                     <AddIcon/>
                 </Button>

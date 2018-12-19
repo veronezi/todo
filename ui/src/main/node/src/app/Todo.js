@@ -10,10 +10,12 @@ import Typography from "@material-ui/core/Typography/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
 import {withRouter} from "react-router-dom";
+import pageSass from "./styles/Page.module.sass";
+import todoSass from "./styles/Todo.module.sass";
 
 const styles = theme => ({
     "content": {
-        backgroundColor: theme.palette.secondary[100]
+        backgroundColor: theme.palette.secondary[50]
     }
 });
 
@@ -48,16 +50,16 @@ class Todo extends Component {
 
     render() {
         return (
-            <div className="todo page">
+            <div className={classNames(todoSass.todo, pageSass.page)}>
                 <Loading/>
-                <div className={classNames(this.props.classes.content, "content")}>
-                    <div className="header">
-                        <Back className="back-button" onClick={this.handleGoBack}/>
+                <div className={classNames(this.props.classes.content, todoSass.content)}>
+                    <div className={todoSass.header}>
+                        <Back className={todoSass["back-button"]} onClick={this.handleGoBack}/>
                         <Typography variant="h6">Add new thing</Typography>
                         <DashboardIcon/>
                     </div>
-                    <div className="form">
-                        <TextField className="field"
+                    <div className={todoSass.form}>
+                        <TextField className={classNames(todoSass.field, "field")}
                                    label="New todo"
                                    value={this.state.newTodo}
                                    onChange={this.handleNewTodoChange}
