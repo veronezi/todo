@@ -5,12 +5,6 @@
   flex-direction: column
   justify-content: center
 
-  &.content
-    align-items: center
-
-    > div
-      position: static
-
   > div
     display: flex
     flex-direction: column
@@ -18,17 +12,20 @@
     align-items: center
     max-width: 400px
 
-  div.fields
-    display: flex
-    flex-direction: column
-    max-width: 270px
+.fields
+  display: flex
+  flex-direction: column
+  max-width: 270px
 
-    > span
-      font-size: 15px
-      font-style: italic
+  > span
+    font-size: 15px
+    font-style: italic
 
-    > div
-      margin: 0 0 20px 0
+  > div
+    margin: 0 0 20px 0
 
-      &:last-child
-        margin: 0
+    &:last-child
+      margin: 0
+
+.content
+  align-items: center

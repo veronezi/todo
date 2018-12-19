@@ -63,7 +63,7 @@ exports[`renders App without crashing 1`] = `
             className="percentage"
           >
             <div
-              aria-valuenow={100}
+              aria-valuenow={NaN}
               className="MuiCircularProgress-root-68 MuiCircularProgress-colorPrimary-71 MuiCircularProgress-static-69"
               role="progressbar"
               style={
@@ -88,18 +88,18 @@ exports[`renders App without crashing 1`] = `
                   style={
                     Object {
                       "strokeDasharray": "126.920",
-                      "strokeDashoffset": "0.000px",
+                      "strokeDashoffset": "NaNpx",
                     }
                   }
                 />
               </svg>
             </div>
-            <p
-              className="MuiTypography-root-13 MuiTypography-body1-22 Connect-TodosNumbers--value-66"
+            <span
+              className="MuiTypography-root-13 MuiTypography-caption-23 Connect-TodosNumbers--value-66 value"
             >
               100
               % done
-            </p>
+            </span>
           </div>
         </div>
       </div>
