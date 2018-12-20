@@ -7,7 +7,6 @@ import CardContent from "@material-ui/core/CardContent/CardContent";
 import CardActions from "@material-ui/core/CardActions/CardActions";
 import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
-import sass from "./styles/Login.module.sass";
 import jss from "./jss/Login.jss";
 import Fab from "@material-ui/core/Fab/Fab";
 import Typography from "@material-ui/core/Typography";
@@ -57,26 +56,26 @@ class Login extends Component {
     render() {
         let jss = this.props.classes;
         return (
-            <div className={classNames(sass.login, sass.content)}>
-                <Card className={jss.theme}>
-                    <CardContent className={sass.fields}>
-                        <TextField className={"field"} label="Username"
+            <div className={classNames(jss.login, jss.content)}>
+                <Card className={classNames(jss.loginChild, jss.theme)}>
+                    <CardContent className={jss.fields}>
+                        <TextField className={classNames(jss.fieldsChild, "field")} label="Username"
                                    onChange={this.handleUsernameChange}
                                    value={this.state.username}
                                    required
                         />
-                        <TextField className={"field"} label="Password"
+                        <TextField className={classNames(jss.fieldsChild, "field")} label="Password"
                                    type="password"
                                    onChange={this.handlePasswordChange}
                                    onKeyPress={this.handlePasswordEnter}
                                    value={this.state.password}
                                    required
                         />
-                        <Typography variant="caption" className={classNames(jss.hint, sass.hint)} gutterBottom>
+                        <Typography variant="caption" className={classNames(jss.hint)} gutterBottom>
                             Hey, any username/password works here. This is just a demo. :)
                         </Typography>
                     </CardContent>
-                    <CardActions>
+                    <CardActions className={jss.center}>
                         <Fab disabled={this.state.username.trim() === "" || this.state.password.trim() === ""}
                              color="primary" aria-label="Login" onClick={() => this.handleLogin()}>
                             <CheckIcon/>
