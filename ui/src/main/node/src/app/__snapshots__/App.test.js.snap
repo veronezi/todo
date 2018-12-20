@@ -6,7 +6,7 @@ exports[`renders App without crashing 1`] = `
 >
   <div>
     <div
-      className="todos page"
+      className="page"
     >
       <div
         className="header"
