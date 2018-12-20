@@ -9,7 +9,8 @@ import Grid from "@material-ui/core/Grid/Grid";
 import Divider from "@material-ui/core/Divider/Divider";
 import Avatar from "@material-ui/core/Avatar/Avatar";
 import Typography from "@material-ui/core/Typography/Typography";
-import sass from "./styles/TodosListEntry.module.sass";
+import withStyles from "@material-ui/core/styles/withStyles";
+import jss from "./jss/TodosListEntry.jss";
 
 class TodosListEntry extends Component {
     handleToggle = value => () => {
@@ -26,15 +27,16 @@ class TodosListEntry extends Component {
 
     render() {
         let todo = this.props.todo;
+        let jss = this.props.classes;
         return (
             <Grid item xs={12} sm={12} onClick={this.handleToggle(todo)}
-                  className={classNames(sass.li, "list-entry")}>
-                <div className={sass.content}>
-                    <Avatar className={sass.icon}>
+                  className={classNames(jss.li, "list-entry")}>
+                <div className={jss.content}>
+                    <Avatar className={jss.icon}>
                         <ReminderIcon color={"primary"}/>
                         <CheckIcon color={"action"} className={classNames({
-                            [sass.done]: todo.done,
-                            [sass.check]: true
+                            [jss.done]: todo.done,
+                            [jss.check]: true
                         })}/>
                     </Avatar>
                     <Typography variant="body1">
@@ -59,4 +61,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodosListEntry);
+export default withStyles(jss)(connect(mapStateToProps, mapDispatchToProps)(TodosListEntry));
