@@ -11,7 +11,6 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
 import {withRouter} from "react-router-dom";
 import pageSass from "./styles/Page.module.sass";
-import todoSass from "./styles/Todo.module.sass";
 import jss from "./jss/Todo.jss";
 
 class Todo extends Component {
@@ -46,22 +45,22 @@ class Todo extends Component {
     render() {
         let jss = this.props.classes;
         return (
-            <div className={classNames(todoSass.todo, pageSass.page)}>
+            <div className={classNames(pageSass.page)}>
                 <Loading/>
-                <div className={classNames(jss.content, todoSass.content)}>
-                    <div className={todoSass.header}>
-                        <Back className={todoSass.back} onClick={this.handleGoBack}/>
+                <div className={classNames(jss.content)}>
+                    <div className={jss.header}>
+                        <Back className={jss.back} onClick={this.handleGoBack}/>
                         <Typography variant="h6">Add new thing</Typography>
                         <DashboardIcon/>
                     </div>
-                    <div className={todoSass.form}>
-                        <TextField className={classNames(todoSass.field, "field")}
+                    <div className={jss.form}>
+                        <TextField className={classNames(jss.field, "field")}
                                    label="New todo"
                                    value={this.state.newTodo}
                                    onChange={this.handleNewTodoChange}
                                    onKeyPress={this.handleAddNewTodo}
                         />
-                        <Button variant="contained" color="primary" aria-label="Add your thing"
+                        <Button variant="contained" className={jss.button} color="primary" aria-label="Add your thing"
                                 onClick={() => this.addNewTodo()}>
                             Add your thing
                         </Button>
