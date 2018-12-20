@@ -8,6 +8,7 @@ import jss from "./jss/App.jss";
 class App extends Component {
 
     render() {
+        let jss = this.props.classes;
         return (
             <BrowserRouter>
                 <div className={jss.application}>
