@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import {BrowserRouter, Route} from "react-router-dom";
-import Login from './Login';
-import Navigator from './Navigator';
+import Login from "./Login";
+import Navigator from "./Navigator";
 import withStyles from "@material-ui/core/styles/withStyles";
-import jss from './jss/App.jss';
+import jss from "./jss/App.jss";
 
 class App extends Component {
 

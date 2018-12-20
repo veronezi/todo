@@ -3,10 +3,10 @@ const init = {
     loadingMarkers: []
 };
 
-const UPDATE_TODOS_LIST = 'UPDATE_TODOS_LIST';
-const TOGGLE_TODO_STATUS = 'TOGGLE_TODO_STATUS';
-const ADD_LOADING_MARKER = 'ADD_LOADING_MARKER';
-const REMOVE_LOADING_MARKER = 'REMOVE_LOADING_MARKER';
+const UPDATE_TODOS_LIST = "UPDATE_TODOS_LIST";
+const TOGGLE_TODO_STATUS = "TOGGLE_TODO_STATUS";
+const ADD_LOADING_MARKER = "ADD_LOADING_MARKER";
+const REMOVE_LOADING_MARKER = "REMOVE_LOADING_MARKER";
 
 const reducer = (state = init, action) => {
     switch (action.type) {
