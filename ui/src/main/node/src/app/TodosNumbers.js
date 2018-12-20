@@ -4,17 +4,16 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
-import sass from "./styles/TodosNumbers.module.sass";
 import jss from "./jss/TodosNumbers.jss";
 
 class TodosNumbers extends Component {
     render() {
         let jss = this.props.classes;
         return (
-            <div className={classNames(sass.numbers, jss.title)}>
-                <div className={sass.percentage}>
+            <div className={classNames(jss.numbers, jss.title)}>
+                <div className={jss.percentage}>
                     <CircularProgress variant="static" value={this.props.percentage}/>
-                    <Typography variant="caption" className={classNames(jss.value, sass.value)}>
+                    <Typography variant="caption" className={jss.value}>
                         {this.props.percentage}% done
                     </Typography>
                 </div>
