@@ -1,22 +1,22 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import TextField from "@material-ui/core/TextField/TextField";
-import CheckIcon from '@material-ui/icons/Check'
-import axios from 'axios';
+import CheckIcon from "@material-ui/icons/Check"
+import axios from "axios";
 import Card from "@material-ui/core/Card/Card";
 import CardContent from "@material-ui/core/CardContent/CardContent";
 import CardActions from "@material-ui/core/CardActions/CardActions";
 import withStyles from "@material-ui/core/styles/withStyles";
-import classNames from 'classnames';
-import sass from './styles/Login.module.sass';
-import jss from './jss/Login.jss';
+import classNames from "classnames";
+import sass from "./styles/Login.module.sass";
+import jss from "./jss/Login.jss";
 import Fab from "@material-ui/core/Fab/Fab";
 import Typography from "@material-ui/core/Typography";
 
 class Login extends Component {
 
     state = {
-        username: '',
-        password: ''
+        username: "",
+        password: ""
     };
 
     componentDidMount() {
@@ -36,19 +36,19 @@ class Login extends Component {
     };
 
     handlePasswordEnter = (event) => {
-        if (event.key === 'Enter') {
+        if (event.key === "Enter") {
             this.handleLogin();
         }
     };
 
     handleLogin = () => {
-        axios.post('/api/login', {
+        axios.post("/api/login", {
             username: this.state.username,
             password: this.state.password,
             expiresIn: "24h"
         }).then((resp) => {
-            localStorage.setItem('auth-todo', resp.data);
-            window.location.href = '/';
+            localStorage.setItem("auth-todo", resp.data);
+            window.location.href = "/";
         }).catch((error) => {
             console.log(error);
         });
@@ -77,7 +77,7 @@ class Login extends Component {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Fab disabled={this.state.username.trim() === '' || this.state.password.trim() === ''}
+                        <Fab disabled={this.state.username.trim() === "" || this.state.password.trim() === ""}
                              color="primary" aria-label="Login" onClick={() => this.handleLogin()}>
                             <CheckIcon/>
                         </Fab>

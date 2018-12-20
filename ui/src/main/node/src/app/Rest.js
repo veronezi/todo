@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 import store from "../store";
 import {ADD_LOADING_MARKER, REMOVE_LOADING_MARKER} from "../reducer";
 
@@ -19,9 +19,9 @@ const getRemoveLoadingAction = (marker) => {
 };
 
 instance.interceptors.request.use(function (config) {
-    let token = localStorage.getItem('auth-todo');
+    let token = localStorage.getItem("auth-todo");
     if (token) {
-        config.headers['Authorization'] = 'Bearer ' + token;
+        config.headers["Authorization"] = "Bearer " + token;
     }
     store.dispatch(getAddLoadingAction(config.marker));
     return config;
@@ -36,8 +36,8 @@ instance.interceptors.response.use(function (response) {
 }, function (error) {
     store.dispatch(getRemoveLoadingAction(error.config.marker));
     if (error.response.status >= 400 && error.response.status <= 499) {
-        localStorage.removeItem('auth-todo');
-        window.location.href = '/login';
+        localStorage.removeItem("auth-todo");
+        window.location.href = "/login";
     }
     return Promise.reject(error);
 });

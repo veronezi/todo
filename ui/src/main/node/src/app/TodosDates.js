@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import Typography from "@material-ui/core/Typography/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
-import jss from './jss/TodosDates.jss';
+import jss from "./jss/TodosDates.jss";
 
 // we will mock this later to make tests not random
 const functions = {
@@ -9,7 +9,7 @@ const functions = {
 };
 
 const options = {
-    year: 'numeric', month: 'numeric', day: 'numeric'
+    year: "numeric", month: "numeric", day: "numeric"
 };
 
 class TodosDates extends Component {
@@ -17,7 +17,7 @@ class TodosDates extends Component {
         let jss = this.props.classes;
         return (
             <Typography className={jss.light} variant="subtitle1">
-                {new Intl.DateTimeFormat('en-US', options).format(functions.getNow())}
+                {new Intl.DateTimeFormat("en-US", options).format(functions.getNow())}
             </Typography>
         );
     }

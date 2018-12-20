@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import {connect} from "react-redux";
 import axios from "./Rest";
 import {TOGGLE_TODO_STATUS} from "../reducer";
-import ReminderIcon from '@material-ui/icons/CalendarToday';
-import CheckIcon from '@material-ui/icons/CheckCircle';
-import classNames from 'classnames';
+import ReminderIcon from "@material-ui/icons/CalendarToday";
+import CheckIcon from "@material-ui/icons/CheckCircle";
+import classNames from "classnames";
 import Grid from "@material-ui/core/Grid/Grid";
 import Divider from "@material-ui/core/Divider/Divider";
 import Avatar from "@material-ui/core/Avatar/Avatar";
@@ -13,7 +13,7 @@ import sass from "./styles/TodosListEntry.module.sass";
 
 class TodosListEntry extends Component {
     handleToggle = value => () => {
-        axios.put('/api/todo', {...value, done: !value.done}).then(() => {
+        axios.put("/api/todo", {...value, done: !value.done}).then(() => {
             this.props.onTodoToggle(value);
             this.updateTitle();
         });
@@ -21,7 +21,7 @@ class TodosListEntry extends Component {
 
     updateTitle() {
         let pending = this.props.todos.filter(todo => !todo.done).length;
-        document.title = `TODOs - ${pending ? pending + ' to go' : 'All done!'}`;
+        document.title = `TODOs - ${pending ? pending + " to go" : "All done!"}`;
     }
 
     render() {
