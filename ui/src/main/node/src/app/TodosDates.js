@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Typography from "@material-ui/core/Typography/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
+import jss from './jss/TodosDates.jss';
 
 // we will mock this later to make tests not random
 const functions = {
@@ -22,10 +23,5 @@ class TodosDates extends Component {
     }
 }
 
-export default withStyles(theme => ({
-    light: {
-        color: theme.palette.secondary[50]
-    }
-
-}))(TodosDates);
+export default withStyles(jss)(TodosDates);
 export {functions};
