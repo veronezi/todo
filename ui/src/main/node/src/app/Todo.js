@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import TextField from "@material-ui/core/TextField/TextField";
 import axios from "./Rest";
 import Loading from "./Loading";
-import Back from '@material-ui/icons/ArrowBack';
-import DashboardIcon from '@material-ui/icons/Dashboard';
+import Back from "@material-ui/icons/ArrowBack";
+import DashboardIcon from "@material-ui/icons/Dashboard";
 import Button from "@material-ui/core/Button/Button";
 import {connect} from "react-redux";
 import Typography from "@material-ui/core/Typography/Typography";
@@ -12,11 +12,11 @@ import classNames from "classnames";
 import {withRouter} from "react-router-dom";
 import pageSass from "./styles/Page.module.sass";
 import todoSass from "./styles/Todo.module.sass";
-import jss from './jss/Todo.jss';
+import jss from "./jss/Todo.jss";
 
 class Todo extends Component {
     state = {
-        newTodo: ''
+        newTodo: ""
     };
 
     handleNewTodoChange = (event) => {
@@ -26,19 +26,19 @@ class Todo extends Component {
     };
 
     handleGoBack = () => {
-        this.props.history.push('/');
+        this.props.history.push("/");
     };
 
     addNewTodo = () => {
-        axios.post('/api/todo', {
+        axios.post("/api/todo", {
             text: this.state.newTodo
         }).then(() => {
-            this.props.history.push('/');
+            this.props.history.push("/");
         });
     };
 
     handleAddNewTodo = (event) => {
-        if (event.key === 'Enter') {
+        if (event.key === "Enter") {
             this.addNewTodo();
         }
     };
