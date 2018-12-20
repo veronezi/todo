@@ -1,4 +1,5 @@
 import hexRgb from "hex-rgb";
+import headerImg from "../../images/header.png";
 
 const jss = theme => {
     const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
@@ -7,10 +8,36 @@ const jss = theme => {
             color: theme.palette.secondary[50]
         },
         title: {
-            backgroundColor: `rgba(${backgroundColorRgb.red}, ${backgroundColorRgb.green}, ${backgroundColorRgb.blue}, 0.5)`
+            backgroundColor: `rgba(${backgroundColorRgb.red}, ${backgroundColorRgb.green}, ${backgroundColorRgb.blue}, 0.5)`,
+            flexGrow: 1,
+            display: "flex",
+            flexDirection: "column"
+        },
+        titleChild: {
+            padding: "20px",
+            flexGrow: 1,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "space-between"
         },
         content: {
-            backgroundColor: theme.palette.secondary[50]
+            backgroundColor: theme.palette.secondary[50],
+            flexGrow: 1,
+            overflow: "auto"
+        },
+        add: {
+            position: "absolute",
+            bottom: "20px",
+            right: "20px"
+        },
+        header: {
+            flexShrink: 0,
+            height: "250px",
+            background: `url(${headerImg}) no-repeat`,
+            backgroundSize: "cover",
+            display: "flex",
+            flexDirection: "row"
         }
     };
 };
