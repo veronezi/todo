@@ -44,7 +44,7 @@ class Todos extends Component {
     render() {
         let jss = this.props.classes;
         return (
-            <div className={classNames(pageSass.page)}>
+            <div className={classNames(todosSass.todos, pageSass.page)}>
                 <div className={todosSass.header}>
                     <div className={classNames(jss.title, todosSass.title)}>
                         <div>

@@ -1,30 +1,32 @@
-button.add
-  position: absolute
-  $position: 20px
-  bottom: $position
-  right: $position
+.todos
 
-.header
-  flex-shrink: 0
-  height: 250px
-  background: url("../../images/header.png") no-repeat
-  background-size: cover
-  display: flex
-  flex-direction: row
+  .add
+    position: absolute
+    $position: 20px
+    bottom: $position
+    right: $position
 
-.title
-  display: flex
-  flex-direction: column
-  flex-grow: 1
+  .header
+    flex-shrink: 0
+    height: 250px
+    background: url("../../images/header.png") no-repeat
+    background-size: cover
+    display: flex
+    flex-direction: row
 
-  > div:first-child
-    padding: 20px
-    flex-grow: 1
+  .title
     display: flex
     flex-direction: column
-    align-items: flex-start
-    justify-content: space-between
+    flex-grow: 1
 
-.content
-  flex-grow: 1
-  overflow: auto
+    > div:first-child
+      padding: 20px
+      flex-grow: 1
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      justify-content: space-between
+
+  .content
+    flex-grow: 1
+    overflow: auto

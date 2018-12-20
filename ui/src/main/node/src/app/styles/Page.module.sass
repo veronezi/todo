@@ -9,21 +9,21 @@
   right: 0
   left: 0
 
-$timeout: 150ms
+  $timeout: 150ms
 
-.fade-enter
-  transition: transform $timeout ease-in-out $timeout, opacity $timeout ease-in-out $timeout
-  transform: translate(-100%)
-  opacity: 0
+  &.fade-enter
+    transition: transform $timeout ease-in-out $timeout, opacity $timeout ease-in-out $timeout
+    transform: translate(-100%)
+    opacity: 0
 
-.fade-enter-active
-  transform: translate(0)
-  opacity: 1
+  &.fade-enter-active
+    transform: translate(0)
+    opacity: 1
 
-.fade-exit
-  transition: transform $timeout ease-in-out, opacity $timeout ease-in-out
-  opacity: 1
+  &.fade-exit
+    transition: transform $timeout ease-in-out, opacity $timeout ease-in-out
+    opacity: 1
 
-.fade-exit-active
-  transform: translate(100%)
-  opacity: 0
+  &.fade-exit-active
+    transform: translate(100%)
+    opacity: 0
