@@ -13,7 +13,6 @@ import Typography from "@material-ui/core/Typography/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
 import {withRouter} from "react-router-dom";
-import pageSass from "./styles/Page.module.sass";
 import jss from "./jss/Todos.jss";
 import Fab from "@material-ui/core/Fab";
 
@@ -43,7 +42,7 @@ class Todos extends Component {
     render() {
         let jss = this.props.classes;
         return (
-            <div className={classNames(pageSass.page)}>
+            <div className={classNames(jss.page)}>
                 <div className={jss.header}>
                     <div className={jss.title}>
                         <div className={jss.titleChild}>

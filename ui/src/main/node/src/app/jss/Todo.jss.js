@@ -31,6 +31,17 @@ const jss = theme => ({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center"
+    },
+    page: {
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        opacity: 1,
+        position: "absolute",
+        top: 0,
+        bottom: 0,
+        right: 0,
+        left: 0
     }
 });
 export default jss;

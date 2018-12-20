@@ -2,8 +2,6 @@ import React, {Component} from "react";
 import {Route, Switch, withRouter} from "react-router-dom";
 import Todos from "./Todos";
 import Todo from "./Todo";
-import sass from "./styles/Page.module.sass";
-
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import jss from "./jss/Navigator.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -16,10 +14,10 @@ class Navigator extends Component {
                 <div className={jss.root}>
                     <TransitionGroup component={null}>
                         <CSSTransition key={location.key} timeout={300} classNames={{
-                            enter: sass["fade-enter"],
-                            enterActive: sass["fade-enter-active"],
-                            exit: sass["fade-exit"],
-                            exitActive: sass["fade-exit-active"]
+                            enter: jss["fade-enter"],
+                            enterActive: jss["fade-enter-active"],
+                            exit: jss["fade-exit"],
+                            exitActive: jss["fade-exit-active"]
                         }}>
                             <Switch location={location}>
                                 <Route exact path="/" component={Todos}/>
