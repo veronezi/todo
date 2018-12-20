@@ -4,6 +4,7 @@ import Login from './Login';
 import Navigator from './Navigator';
 import withStyles from "@material-ui/core/styles/withStyles";
 import sass from './styles/App.module.sass';
+import jss from './jss/App.jss';
 
 class App extends Component {
 
@@ -19,10 +20,4 @@ class App extends Component {
     }
 }
 
-export default withStyles(theme => ({
-    "@global": {
-        "#root": {
-            backgroundColor: theme.palette.primary.dark
-        }
-    }
-}))(App);
+export default withStyles(jss)(App);

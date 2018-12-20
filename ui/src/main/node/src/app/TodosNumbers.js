@@ -3,9 +3,9 @@ import {connect} from "react-redux";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from "@material-ui/core/Typography/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
-import hexRgb from "hex-rgb";
 import classNames from "classnames";
 import sass from "./styles/TodosNumbers.module.sass";
+import jss from './jss/TodosNumbers.jss';
 
 class TodosNumbers extends Component {
     render() {
@@ -39,14 +39,4 @@ const mapDispatchToProps = () => {
     return {};
 };
 
-export default withStyles(theme => {
-    const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
-    return {
-        value: {
-            color: theme.palette.secondary[50]
-        },
-        title: {
-            backgroundColor: `rgba(${backgroundColorRgb.red}, ${backgroundColorRgb.green}, ${backgroundColorRgb.blue}, 0.6)`
-        }
-    };
-})(connect(mapStateToProps, mapDispatchToProps)(TodosNumbers));
+export default withStyles(jss)(connect(mapStateToProps, mapDispatchToProps)(TodosNumbers));

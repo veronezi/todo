@@ -42,14 +42,15 @@ public class StepsBrowser implements En {
     }
 
     private void enterTextField(String text, final String labelText) {
+        val driver = browser.getDriver();
         retry(() -> {
-            WebElement field = browser.getDriver().findElements(By.cssSelector("div.field")).stream().filter(inputCandidate -> {
+            WebElement field = driver.findElements(By.cssSelector("div.field")).stream().filter(inputCandidate -> {
                 // removing special characters with me.xuender.unidecode.Unidecode -> tx bud!
                 val actual = me.xuender.unidecode.Unidecode.decode(inputCandidate.findElement(By.cssSelector("label")).getText());
                 val result = labelText.equalsIgnoreCase(actual);
                 log.info(MessageFormat.format("Found label ''{0}''; expected ''{1}'' -> equal? [{2}]", actual, labelText, result));
                 return result;
-            }).findFirst().orElseThrow(() -> new TestException("Field not found")).findElement(By.cssSelector("input"));
+            }).findFirst().orElseThrow(() -> new TestException("Field not found. " + driver.getPageSource())).findElement(By.cssSelector("input"));
             field.sendKeys(text);
             field.sendKeys(Keys.RETURN);
         });
@@ -94,7 +95,7 @@ public class StepsBrowser implements En {
                         candidate.getAttribute("aria-label").equalsIgnoreCase(ariaLabel)
                 )
                 .findFirst()
-                .orElseThrow(() -> new TestException("Item with aria-label='" + ariaLabel + "' not found"))
+                .orElseThrow(() -> new TestException("Item with aria-label='" + ariaLabel + "' not found. " + browser.getDriver().getPageSource()))
                 .click())
         );
 

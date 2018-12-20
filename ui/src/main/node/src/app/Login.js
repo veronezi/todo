@@ -8,6 +8,7 @@ import CardActions from "@material-ui/core/CardActions/CardActions";
 import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from 'classnames';
 import sass from './styles/Login.module.sass';
+import jss from './jss/Login.jss';
 import Fab from "@material-ui/core/Fab/Fab";
 import Typography from "@material-ui/core/Typography";
 
@@ -87,11 +88,4 @@ class Login extends Component {
     }
 }
 
-export default withStyles(theme => ({
-    theme: {
-        backgroundColor: theme.palette.secondary[50]
-    },
-    hint: {
-        color: theme.palette.text.hint
-    }
-}))(Login);
+export default withStyles(jss)(Login);
