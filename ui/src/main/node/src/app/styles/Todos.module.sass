@@ -12,20 +12,18 @@ button.add
   display: flex
   flex-direction: row
 
-  > div.title, > div.title > div
+.title
+  display: flex
+  flex-direction: column
+  flex-grow: 1
+
+  > div:first-child
+    padding: 20px
+    flex-grow: 1
     display: flex
     flex-direction: column
-
-  > div.title
-    flex-grow: 1
-
-    > div:first-child
-      padding: 20px
-      flex-grow: 1
-      display: flex
-      flex-direction: column
-      align-items: flex-start
-      justify-content: space-between
+    align-items: flex-start
+    justify-content: space-between
 
 .content
   flex-grow: 1
