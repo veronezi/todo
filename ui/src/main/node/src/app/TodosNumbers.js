@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import {connect} from "react-redux";
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
 import sass from "./styles/TodosNumbers.module.sass";
-import jss from './jss/TodosNumbers.jss';
+import jss from "./jss/TodosNumbers.jss";
 
 class TodosNumbers extends Component {
     render() {
