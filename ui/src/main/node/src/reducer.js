@@ -1,8 +1,16 @@
+import primaryColor from "@material-ui/core/colors/indigo";
+import secondaryColor from "@material-ui/core/colors/red";
+
 const init = {
     todos: [],
-    loadingMarkers: []
+    loadingMarkers: [],
+    palette: {
+        primary: primaryColor,
+        secondary: secondaryColor
+    }
 };
 
+const UPDATE_PALETTE = "UPDATE_PALETTE";
 const UPDATE_TODOS_LIST = "UPDATE_TODOS_LIST";
 const TOGGLE_TODO_STATUS = "TOGGLE_TODO_STATUS";
 const ADD_LOADING_MARKER = "ADD_LOADING_MARKER";
@@ -37,6 +45,12 @@ const reducer = (state = init, action) => {
                 loadingMarkers: state.loadingMarkers.filter((marker) => marker !== action.payload)
             }
         }
+        case UPDATE_PALETTE: {
+            return {
+                ...state,
+                palette: action.palette
+            }
+        }
         default: {
             return state;
         }
@@ -44,6 +58,7 @@ const reducer = (state = init, action) => {
 };
 
 export {
+    UPDATE_PALETTE,
     UPDATE_TODOS_LIST,
     TOGGLE_TODO_STATUS,
     ADD_LOADING_MARKER,
