@@ -5,19 +5,35 @@ import Navigator from "./Navigator";
 import withStyles from "@material-ui/core/styles/withStyles";
 import sass from "./styles/App.module.sass";
 import jss from "./jss/App.jss";
+import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
+import connect from "react-redux/es/connect/connect";
 
 class App extends Component {
 
     render() {
         return (
-            <BrowserRouter>
-                <div className={sass.application}>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/" component={Navigator}/>
-                </div>
-            </BrowserRouter>
+            <MuiThemeProvider theme={this.props.theme}>
+                <BrowserRouter>
+                    <div className={sass.application}>
+                        <Route path="/login" component={Login}/>
+                        <Route path="/" component={Navigator}/>
+                    </div>
+                </BrowserRouter>
+            </MuiThemeProvider>
         );
     }
 }
 
-export default withStyles(jss)(App);
+const mapStateToProps = state => {
+    return {
+        theme: createMuiTheme({
+            palette: {
+                ...state.palette
+            },
+            typography: {
+                useNextVariants: true
+            }
+        })
+    };
+};
+export default connect(mapStateToProps)(withStyles(jss)(App));

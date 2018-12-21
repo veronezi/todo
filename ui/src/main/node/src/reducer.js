@@ -46,6 +46,7 @@ const reducer = (state = init, action) => {
             }
         }
         case UPDATE_PALETTE: {
+            console.log("new palette", action.palette);
             return {
                 ...state,
                 palette: action.palette

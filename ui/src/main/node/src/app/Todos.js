@@ -12,7 +12,7 @@ import Grid from "@material-ui/core/Grid/Grid";
 import Typography from "@material-ui/core/Typography/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
-import {withRouter} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import pageSass from "./styles/Page.module.sass";
 import todosSass from "./styles/Todos.module.sass";
 import jss from "./jss/Todos.jss";
@@ -48,7 +48,9 @@ class Todos extends Component {
                 <div className={todosSass.header}>
                     <div className={classNames(jss.title, todosSass.title)}>
                         <div>
-                            <Subject className={jss.light}/>
+                            <Link to={"/config"}>
+                                <Subject className={jss.light}/>
+                            </Link>
                             <Typography className={jss.light} variant="h4" color={"primary"}>
                                 Your Things
                             </Typography>

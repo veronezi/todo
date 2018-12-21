@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Route, Switch, withRouter} from "react-router-dom";
 import Todos from "./Todos";
 import Todo from "./Todo";
+import Config from "./Config";
 import sass from "./styles/Page.module.sass";
 
 import {CSSTransition, TransitionGroup} from "react-transition-group";
@@ -20,6 +21,7 @@ class Navigator extends Component {
                         <Switch location={location}>
                             <Route exact path="/" component={Todos}/>
                             <Route path="/todo" component={Todo}/>
+                            <Route path="/config" component={Config}/>
                         </Switch>
                     </CSSTransition>
                 </TransitionGroup>
