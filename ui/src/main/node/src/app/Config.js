@@ -6,10 +6,11 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import jss from "./jss/Config.jss";
 import Color from "./Color";
 import {UPDATE_PALETTE} from "../reducer";
-import connect from "react-redux/es/connect/connect";
-import Typography from "@material-ui/core/Typography";
 
-class  Config extends Component {
+import Typography from "@material-ui/core/Typography";
+import {connect} from "react-redux";
+
+class Config extends Component {
 
     updatePrimary = (color) => {
         this.props.onUpdatePalette({
@@ -32,11 +33,11 @@ class  Config extends Component {
                 <Typography variant="subtitle1">
                     Primary
                 </Typography>
-                <Color onChange={(color) => this.updatePrimary(color) }/>
+                <Color onChange={(color) => this.updatePrimary(color)}/>
                 <Typography variant="subtitle1">
                     Secondary
                 </Typography>
-                <Color onChange={(color) => this.updateSecondary(color) }/>
+                <Color onChange={(color) => this.updateSecondary(color)}/>
             </div>
         );
     }

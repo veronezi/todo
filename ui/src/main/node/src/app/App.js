@@ -6,7 +6,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import sass from "./styles/App.module.sass";
 import jss from "./jss/App.jss";
 import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
-import connect from "react-redux/es/connect/connect";
+import {connect} from "react-redux";
 
 class App extends Component {
 
@@ -25,15 +25,16 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
+    let theme = {
+        palette: {
+            ...state.palette
+        },
+        typography: {
+            useNextVariants: true
+        }
+    };
     return {
-        theme: createMuiTheme({
-            palette: {
-                ...state.palette
-            },
-            typography: {
-                useNextVariants: true
-            }
-        })
+        theme: createMuiTheme(theme)
     };
 };
 export default connect(mapStateToProps)(withStyles(jss)(App));
