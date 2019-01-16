@@ -9,15 +9,13 @@ import Grid from "@material-ui/core/Grid/Grid";
 import Divider from "@material-ui/core/Divider/Divider";
 import Avatar from "@material-ui/core/Avatar/Avatar";
 import Typography from "@material-ui/core/Typography/Typography";
-import sass from "./styles/TodosListEntry.module.sass";
+import jss from "./TodosListEntry.jss";
 
 class TodosListEntry extends Component {
-    handleToggle = value => () => {
-        axios.put("/api/todo", {...value, done: !value.done}).then(() => {
-            this.props.onTodoToggle(value);
-            this.updateTitle();
-        });
-    };
+    handleToggle = (value) => axios.put("/api/todo", {...value, done: !value.done}).then(() => {
+        this.props.onTodoToggle(value);
+        this.updateTitle();
+    });
 
     updateTitle() {
         let pending = this.props.todos.filter(todo => !todo.done).length;
@@ -25,16 +23,16 @@ class TodosListEntry extends Component {
     }
 
     render() {
-        let todo = this.props.todo;
+        const {todo, classes} = this.props;
         return (
-            <Grid item xs={12} sm={12} onClick={this.handleToggle(todo)}
-                  className={classNames(sass.li, "list-entry")}>
-                <div className={sass.content}>
-                    <Avatar className={sass.icon}>
+            <Grid item xs={12} sm={12} onClick={() => this.handleToggle(todo)}
+                  className={classNames(classes.li, "list-entry")}>
+                <div className={classes.content}>
+                    <Avatar className={classes.icon}>
                         <ReminderIcon color={"primary"}/>
                         <CheckIcon color={"action"} className={classNames({
-                            [sass.done]: todo.done,
-                            [sass.check]: true
+                            [classes.done]: todo.done,
+                            [classes.check]: true
                         })}/>
                     </Avatar>
                     <Typography variant="body1">
@@ -59,4 +57,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodosListEntry);
+export default jss(connect(mapStateToProps, mapDispatchToProps)(TodosListEntry));
