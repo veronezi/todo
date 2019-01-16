@@ -41,24 +41,24 @@ class Todo extends Component {
     };
 
     render() {
-        let jss = this.props.classes;
+        const {classes} = this.props;
         return (
-            <div className={classNames(jss.page)}>
+            <div className={classNames(classes.page)}>
                 <Loading/>
-                <div className={classNames(jss.content)}>
-                    <div className={jss.header}>
-                        <Back className={jss.back} onClick={this.handleGoBack}/>
+                <div className={classNames(classes.content)}>
+                    <div className={classes.header}>
+                        <Back className={classes.back} onClick={this.handleGoBack}/>
                         <Typography variant="h6">Add new thing</Typography>
                         <DashboardIcon/>
                     </div>
-                    <div className={jss.form}>
-                        <TextField className={classNames(jss.field, "field")}
+                    <div className={classes.form}>
+                        <TextField className={classNames(classes.field, "field")}
                                    label="New todo"
                                    value={this.state.newTodo}
                                    onChange={this.handleNewTodoChange}
                                    onKeyPress={this.handleAddNewTodo}
                         />
-                        <Button variant="contained" className={jss.button} color="primary" aria-label="Add your thing"
+                        <Button variant="contained" className={classes.button} color="primary" aria-label="Add your thing"
                                 onClick={() => this.addNewTodo()}>
                             Add your thing
                         </Button>

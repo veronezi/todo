@@ -1,25 +1,20 @@
-import React, {Component} from "react";
+import React from "react";
 import {connect} from "react-redux";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography/Typography";
 import classNames from "classnames";
 import jss from "./TodosNumbers.jss";
 
-class TodosNumbers extends Component {
-    render() {
-        let jss = this.props.classes;
-        return (
-            <div className={classNames(jss.numbers, jss.title)}>
-                <div className={jss.percentage}>
-                    <CircularProgress variant="static" value={this.props.percentage}/>
-                    <Typography variant="caption" className={jss.value}>
-                        {this.props.percentage}% done
-                    </Typography>
-                </div>
-            </div>
-        );
-    }
-}
+const TodosNumbers = ({classes, percentage}) => (
+    <div className={classNames(classes.numbers, classes.title)}>
+        <div className={classes.percentage}>
+            <CircularProgress variant="static" value={percentage}/>
+            <Typography variant="caption" className={classes.value}>
+                {percentage}% done
+            </Typography>
+        </div>
+    </div>
+);
 
 const mapStateToProps = state => {
     let done = state.todos.filter(todo => todo.done).length;

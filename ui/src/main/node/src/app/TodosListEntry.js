@@ -12,12 +12,10 @@ import Typography from "@material-ui/core/Typography/Typography";
 import jss from "./TodosListEntry.jss";
 
 class TodosListEntry extends Component {
-    handleToggle = value => () => {
-        axios.put("/api/todo", {...value, done: !value.done}).then(() => {
-            this.props.onTodoToggle(value);
-            this.updateTitle();
-        });
-    };
+    handleToggle = (value) => axios.put("/api/todo", {...value, done: !value.done}).then(() => {
+        this.props.onTodoToggle(value);
+        this.updateTitle();
+    });
 
     updateTitle() {
         let pending = this.props.todos.filter(todo => !todo.done).length;
@@ -25,17 +23,16 @@ class TodosListEntry extends Component {
     }
 
     render() {
-        let todo = this.props.todo;
-        let jss = this.props.classes;
+        const {todo, classes} = this.props;
         return (
-            <Grid item xs={12} sm={12} onClick={this.handleToggle(todo)}
-                  className={classNames(jss.li, "list-entry")}>
-                <div className={jss.content}>
-                    <Avatar className={jss.icon}>
+            <Grid item xs={12} sm={12} onClick={() => this.handleToggle(todo)}
+                  className={classNames(classes.li, "list-entry")}>
+                <div className={classes.content}>
+                    <Avatar className={classes.icon}>
                         <ReminderIcon color={"primary"}/>
                         <CheckIcon color={"action"} className={classNames({
-                            [jss.done]: todo.done,
-                            [jss.check]: true
+                            [classes.done]: todo.done,
+                            [classes.check]: true
                         })}/>
                     </Avatar>
                     <Typography variant="body1">

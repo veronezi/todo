@@ -23,12 +23,14 @@ class Login extends Component {
 
     handleUsernameChange = (event) => {
         this.setState({
+            ...this.state,
             username: event.target.value
         });
     };
 
     handlePasswordChange = (event) => {
         this.setState({
+            ...this.state,
             password: event.target.value
         });
     };
@@ -39,43 +41,40 @@ class Login extends Component {
         }
     };
 
-    handleLogin = () => {
-        axios.post("/api/login", {
-            username: this.state.username,
-            password: this.state.password,
-            expiresIn: "24h"
-        }).then((resp) => {
-            localStorage.setItem("auth-todo", resp.data);
-            window.location.href = "/";
-        }).catch((error) => {
-            console.log(error);
-        });
-    };
+    handleLogin = () => axios.post("/api/login", {
+        username: this.state.username,
+        password: this.state.password,
+        expiresIn: "24h"
+    }).then((resp) => {
+        localStorage.setItem("auth-todo", resp.data);
+        window.location.href = "/";
+    }).catch((error) => console.log(error));
 
     render() {
-        let jss = this.props.classes;
+        const {classes} = this.props;
+        const {username, password} = this.state;
         return (
-            <div className={classNames(jss.login, jss.content)}>
-                <Card className={classNames(jss.loginChild, jss.theme)}>
-                    <CardContent className={jss.fields}>
-                        <TextField className={classNames(jss.fieldsChild, "field")} label="Username"
-                                   onChange={this.handleUsernameChange}
-                                   value={this.state.username}
+            <div className={classNames(classes.login, classes.content)}>
+                <Card className={classNames(classes.loginChild, classes.theme)}>
+                    <CardContent className={classes.fields}>
+                        <TextField className={classNames(classes.fieldsChild, "field")} label="Username"
+                                   onChange={(event) => this.handleUsernameChange(event)}
+                                   value={username}
                                    required
                         />
-                        <TextField className={classNames(jss.fieldsChild, "field")} label="Password"
+                        <TextField className={classNames(classes.fieldsChild, "field")} label="Password"
                                    type="password"
-                                   onChange={this.handlePasswordChange}
-                                   onKeyPress={this.handlePasswordEnter}
-                                   value={this.state.password}
+                                   onChange={(event) => this.handlePasswordChange(event)}
+                                   onKeyPress={(event) => this.handlePasswordEnter(event)}
+                                   value={password}
                                    required
                         />
-                        <Typography variant="caption" className={classNames(jss.hint)} gutterBottom>
+                        <Typography variant="caption" className={classNames(classes.hint)} gutterBottom>
                             Hey, any username/password works here. This is just a demo. :)
                         </Typography>
                     </CardContent>
-                    <CardActions className={jss.center}>
-                        <Fab disabled={this.state.username.trim() === "" || this.state.password.trim() === ""}
+                    <CardActions className={classes.center}>
+                        <Fab disabled={username.trim() === "" || password.trim() === ""}
                              color="primary" aria-label="Login" onClick={() => this.handleLogin()}>
                             <CheckIcon/>
                         </Fab>

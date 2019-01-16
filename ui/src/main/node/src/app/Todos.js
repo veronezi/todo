@@ -39,14 +39,14 @@ class Todos extends Component {
     };
 
     render() {
-        let jss = this.props.classes;
+        let {classes, todos} = this.props;
         return (
-            <div className={classNames(jss.page)}>
-                <div className={jss.header}>
-                    <div className={jss.title}>
-                        <div className={jss.titleChild}>
-                            <Subject className={jss.light}/>
-                            <Typography className={jss.light} variant="h4" color={"primary"}>
+            <div className={classNames(classes.page)}>
+                <div className={classes.header}>
+                    <div className={classes.title}>
+                        <div className={classes.titleChild}>
+                            <Subject className={classes.light}/>
+                            <Typography className={classes.light} variant="h4" color={"primary"}>
                                 Your Things
                             </Typography>
                             <TodosDates/>
@@ -55,12 +55,12 @@ class Todos extends Component {
                     </div>
                     <TodosNumbers/>
                 </div>
-                <div className={jss.content}>
+                <div className={classes.content}>
                     <Grid container direction="row" justify="center" alignItems="center">
-                        {this.props.todos.map(todo => (<TodosListEntry todo={todo} key={todo.id}/>))}
+                        {todos.map(todo => (<TodosListEntry todo={todo} key={todo.id}/>))}
                     </Grid>
                 </div>
-                <Fab className={jss.add} color="primary" aria-label="Add"
+                <Fab className={classes.add} color="primary" aria-label="Add"
                      onClick={() => this.openTodoPage()}>
                     <AddIcon/>
                 </Fab>
