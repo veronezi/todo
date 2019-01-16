@@ -1,9 +1,6 @@
 import React, {Component} from "react";
-import pageSass from "./styles/Page.module.sass";
-import sass from "./styles/Config.module.sass";
 import classNames from "classnames";
-import withStyles from "@material-ui/core/styles/withStyles";
-import jss from "./jss/Config.jss";
+import jss from "./Config.jss";
 import Color from "./Color";
 import {UPDATE_PALETTE} from "../reducer";
 
@@ -27,9 +24,9 @@ class Config extends Component {
     };
 
     render() {
-        let jss = this.props.classes;
+        const {classes} = this.props;
         return (
-            <div className={classNames(pageSass.page, sass.config, jss.root)}>
+            <div className={classNames(classes.page, classes.root)}>
                 <Typography variant="subtitle1">
                     Primary
                 </Typography>
@@ -55,4 +52,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(jss)(Config));
+export default connect(mapStateToProps, mapDispatchToProps)(jss(Config));

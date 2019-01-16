@@ -7,12 +7,9 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import Button from "@material-ui/core/Button/Button";
 import {connect} from "react-redux";
 import Typography from "@material-ui/core/Typography/Typography";
-import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
 import {withRouter} from "react-router-dom";
-import pageSass from "./styles/Page.module.sass";
-import todoSass from "./styles/Todo.module.sass";
-import jss from "./jss/Todo.jss";
+import jss from "./Todo.jss";
 
 class Todo extends Component {
     state = {
@@ -44,24 +41,24 @@ class Todo extends Component {
     };
 
     render() {
-        let jss = this.props.classes;
+        const {classes} = this.props;
         return (
-            <div className={classNames(todoSass.todo, pageSass.page)}>
+            <div className={classNames(classes.page)}>
                 <Loading/>
-                <div className={classNames(jss.content, todoSass.content)}>
-                    <div className={todoSass.header}>
-                        <Back className={todoSass.back} onClick={this.handleGoBack}/>
+                <div className={classNames(classes.content)}>
+                    <div className={classes.header}>
+                        <Back className={classes.back} onClick={this.handleGoBack}/>
                         <Typography variant="h6">Add new thing</Typography>
                         <DashboardIcon/>
                     </div>
-                    <div className={todoSass.form}>
-                        <TextField className={classNames(todoSass.field, "field")}
+                    <div className={classes.form}>
+                        <TextField className={classNames(classes.field, "field")}
                                    label="New todo"
                                    value={this.state.newTodo}
                                    onChange={this.handleNewTodoChange}
                                    onKeyPress={this.handleAddNewTodo}
                         />
-                        <Button variant="contained" color="primary" aria-label="Add your thing"
+                        <Button variant="contained" className={classes.button} color="primary" aria-label="Add your thing"
                                 onClick={() => this.addNewTodo()}>
                             Add your thing
                         </Button>
@@ -72,4 +69,4 @@ class Todo extends Component {
     }
 }
 
-export default withStyles(jss)(connect()(withRouter(Todo)));
+export default connect()(withRouter(jss(Todo)));

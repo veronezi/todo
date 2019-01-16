@@ -21,7 +21,7 @@ import {
     teal,
     yellow
 } from "@material-ui/core/colors";
-import sass from "./styles/Color.module.sass";
+import jss from "./Color.jss";
 
 const colors = {
     amber,
@@ -46,14 +46,14 @@ const colors = {
     yellow
 };
 
-const Color = (props) => (
-    <div className={sass.color}>
+const Color = ({onChange, classes}) => (
+    <div className={classes.root}>
         {Object.keys(colors).filter((color) => colors[color].main || colors[color]["500"]).map(color => (
             <div style={{
                 backgroundColor: colors[color].A400
-            }} key={color} onClick={() => props.onChange(colors[color])}/>
+            }} key={color} onClick={() => onChange(colors[color])}/>
         ))}
     </div>
 );
 
-export default Color;
+export default jss(Color);

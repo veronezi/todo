@@ -12,7 +12,7 @@ image:https://github.com/play-with-docker/stacks/raw/master/assets/images/button
 == Whats in the box?
 
 This project covers several different technologies used in the industry: docker, docker-compose, dockerize, travis, httpd,
-docker-maven-plugin, JWT, Java, Microprofile, Jakarta EE, testcontainers, cucumber, nodejs, ReactJS, SASS, Javascript
+docker-maven-plugin, JWT, Java, Microprofile, Jakarta EE, testcontainers, cucumber, nodejs, ReactJS, JSS, Javascript
 etc. From backend to frontend; From test to production; If you understand all of it, you are a polyglot programmer.
 
 === `/api` and `/api-docker`
