@@ -8,4 +8,4 @@ echo "building the docker images"
 mvn --settings /tmp/.travis.settings.xml install -DskipTests
 
 echo "running the maven tests"
-xvfb-run mvn --settings /tmp/.travis.settings.xml test -Ddocker.skip=true -Dheadless=false
+mvn --settings /tmp/.travis.settings.xml test -Ddocker.skip=true
