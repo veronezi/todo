@@ -1,4 +1,6 @@
-const jss = () => {
+import injectSheet from "react-jss";
+
+const styles = () => {
     const spacing = "20px";
     return {
         li: {
@@ -31,4 +33,5 @@ const jss = () => {
         }
     };
 };
-export default jss;
+
+export default ((cls) => injectSheet(styles)(cls));

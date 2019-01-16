@@ -5,9 +5,8 @@ import axios from "axios";
 import Card from "@material-ui/core/Card/Card";
 import CardContent from "@material-ui/core/CardContent/CardContent";
 import CardActions from "@material-ui/core/CardActions/CardActions";
-import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
-import jss from "./jss/Login.jss";
+import jss from "./Login.jss";
 import Fab from "@material-ui/core/Fab/Fab";
 import Typography from "@material-ui/core/Typography";
 
@@ -87,4 +86,4 @@ class Login extends Component {
     }
 }
 
-export default withStyles(jss)(Login);
+export default jss(Login);

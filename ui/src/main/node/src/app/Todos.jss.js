@@ -1,7 +1,8 @@
 import hexRgb from "hex-rgb";
-import headerImg from "../../images/header.png";
+import headerImg from "../images/header.png";
+import injectSheet from "react-jss";
 
-const jss = theme => {
+const styles = theme => {
     const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
     return {
         light: {
@@ -52,4 +53,5 @@ const jss = theme => {
         }
     };
 };
-export default jss;
+
+export default ((cls) => injectSheet(styles)(cls));

@@ -3,8 +3,7 @@ import {Route, Switch, withRouter} from "react-router-dom";
 import Todos from "./Todos";
 import Todo from "./Todo";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
-import jss from "./jss/Navigator.jss";
-import withStyles from "@material-ui/core/styles/withStyles";
+import jss from "./Navigator.jss";
 
 class Navigator extends Component {
     render() {
@@ -31,4 +30,4 @@ class Navigator extends Component {
     }
 }
 
-export default withStyles(jss)(withRouter(Navigator));
+export default jss(withRouter(Navigator));

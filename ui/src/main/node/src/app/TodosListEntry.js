@@ -9,8 +9,7 @@ import Grid from "@material-ui/core/Grid/Grid";
 import Divider from "@material-ui/core/Divider/Divider";
 import Avatar from "@material-ui/core/Avatar/Avatar";
 import Typography from "@material-ui/core/Typography/Typography";
-import withStyles from "@material-ui/core/styles/withStyles";
-import jss from "./jss/TodosListEntry.jss";
+import jss from "./TodosListEntry.jss";
 
 class TodosListEntry extends Component {
     handleToggle = value => () => {
@@ -61,4 +60,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withStyles(jss)(connect(mapStateToProps, mapDispatchToProps)(TodosListEntry));
+export default jss(connect(mapStateToProps, mapDispatchToProps)(TodosListEntry));

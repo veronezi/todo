@@ -1,6 +1,7 @@
 import hexRgb from "hex-rgb";
+import injectSheet from "react-jss";
 
-const jss = theme => {
+const styles = theme => {
     const backgroundColorRgb = hexRgb(theme.palette.primary.dark);
     return {
         value: {
@@ -30,4 +31,5 @@ const jss = theme => {
         }
     };
 };
-export default jss;
+
+export default ((cls) => injectSheet(styles)(cls));

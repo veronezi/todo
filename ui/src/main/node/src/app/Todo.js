@@ -7,10 +7,9 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import Button from "@material-ui/core/Button/Button";
 import {connect} from "react-redux";
 import Typography from "@material-ui/core/Typography/Typography";
-import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
 import {withRouter} from "react-router-dom";
-import jss from "./jss/Todo.jss";
+import jss from "./Todo.jss";
 
 class Todo extends Component {
     state = {
@@ -70,4 +69,4 @@ class Todo extends Component {
     }
 }
 
-export default withStyles(jss)(connect()(withRouter(Todo)));
+export default jss(connect()(withRouter(Todo)));

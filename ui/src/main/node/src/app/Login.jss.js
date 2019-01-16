@@ -1,4 +1,6 @@
-const jss = theme => ({
+import injectSheet from "react-jss";
+
+const styles = theme => ({
     theme: {
         backgroundColor: theme.palette.secondary[50]
     },
@@ -37,4 +39,5 @@ const jss = theme => ({
     }
 
 });
-export default jss;
+
+export default ((cls) => injectSheet(styles)(cls));

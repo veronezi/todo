@@ -2,9 +2,8 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography/Typography";
-import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
-import jss from "./jss/TodosNumbers.jss";
+import jss from "./TodosNumbers.jss";
 
 class TodosNumbers extends Component {
     render() {
@@ -38,4 +37,4 @@ const mapDispatchToProps = () => {
     return {};
 };
 
-export default withStyles(jss)(connect(mapStateToProps, mapDispatchToProps)(TodosNumbers));
+export default jss(connect(mapStateToProps, mapDispatchToProps)(TodosNumbers));

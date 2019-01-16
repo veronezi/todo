@@ -10,10 +10,9 @@ import TodosListEntry from "./TodosListEntry";
 import TodosDates from "./TodosDates";
 import Grid from "@material-ui/core/Grid/Grid";
 import Typography from "@material-ui/core/Typography/Typography";
-import withStyles from "@material-ui/core/styles/withStyles";
 import classNames from "classnames";
 import {withRouter} from "react-router-dom";
-import jss from "./jss/Todos.jss";
+import jss from "./Todos.jss";
 import Fab from "@material-ui/core/Fab";
 
 class Todos extends Component {
@@ -82,4 +81,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withStyles(jss)(connect(mapStateToProps, mapDispatchToProps)(withRouter(Todos)));
+export default jss(connect(mapStateToProps, mapDispatchToProps)(withRouter(Todos)));

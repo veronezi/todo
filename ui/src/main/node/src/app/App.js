@@ -2,8 +2,7 @@ import React, {Component} from "react";
 import {BrowserRouter, Route} from "react-router-dom";
 import Login from "./Login";
 import Navigator from "./Navigator";
-import withStyles from "@material-ui/core/styles/withStyles";
-import jss from "./jss/App.jss";
+import jss from "./App.jss";
 
 class App extends Component {
 
@@ -20,4 +19,4 @@ class App extends Component {
     }
 }
 
-export default withStyles(jss)(App);
+export default jss(App);

@@ -1,5 +1,7 @@
+import injectSheet from "react-jss";
+
 const timeout = "150ms";
-const jss = () => ({
+const styles = () => ({
     root: {
         width: "100%",
         height: "100%",
@@ -24,4 +26,5 @@ const jss = () => ({
         opacity: 0
     }
 });
-export default jss;
+
+export default ((cls) => injectSheet(styles)(cls));
