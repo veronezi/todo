@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import axios from "./Rest";
 import {connect} from "react-redux";
 import TodosNumbers from "./TodosNumbers"
-import Subject from "@material-ui/icons/Subject";
 import AddIcon from "@material-ui/icons/Add";
 import {TOGGLE_TODO_STATUS, UPDATE_TODOS_LIST} from "../reducer";
 import Loading from "./Loading";
@@ -14,6 +13,7 @@ import classNames from "classnames";
 import {withRouter} from "react-router-dom";
 import jss from "./Todos.jss";
 import Fab from "@material-ui/core/Fab";
+import User from "./User";
 
 class Todos extends Component {
 
@@ -45,7 +45,7 @@ class Todos extends Component {
                 <div className={classes.header}>
                     <div className={classes.title}>
                         <div className={classes.titleChild}>
-                            <Subject className={classes.light}/>
+                            <User/>
                             <Typography className={classes.light} variant="h4" color={"primary"}>
                                 Your Things
                             </Typography>
