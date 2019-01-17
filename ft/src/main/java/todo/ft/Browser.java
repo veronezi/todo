@@ -42,6 +42,7 @@ public class Browser implements Closeable {
                 if (services.isHeadless()) {
                     chromeOptions.addArguments(
                             "--headless",
+                            "--window-size=1920,1080",
                             "--no-sandbox",
                             "--disable-gpu"
                     );
