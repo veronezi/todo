@@ -5,7 +5,7 @@ services:
     image: veronezi/todo-static
 
   auth:
-    image: veronezi/todo-auth
+    image: veronezi/auth-jwt:${AUTH_VERSION:-latest}
 
   ui:
     image: veronezi/todo-facade

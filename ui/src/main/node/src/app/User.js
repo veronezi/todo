@@ -20,7 +20,7 @@ const logout = () => {
 };
 
 const User = ({classes}) => (
-    <Tooltip title={`Logout`} aria-label={`Logout`}>
+    <Tooltip title={"Logout"} aria-label={"Logout"}>
         <div className={classes.root} onClick={logout}>
             <Icon className={classes.light}/>
             <Typography variant="body2" className={classes.light}>

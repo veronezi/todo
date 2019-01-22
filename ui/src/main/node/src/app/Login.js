@@ -9,6 +9,9 @@ import classNames from "classnames";
 import jss from "./Login.jss";
 import Fab from "@material-ui/core/Fab/Fab";
 import Typography from "@material-ui/core/Typography";
+import {ADD_ACCESS_TOKEN} from "../reducer";
+import {connect} from "react-redux";
+import {withRouter} from "react-router-dom";
 
 class Login extends Component {
 
@@ -46,8 +49,8 @@ class Login extends Component {
         password: this.state.password,
         expiresIn: "24h"
     }).then((resp) => {
-        localStorage.setItem("auth-todo", resp.data);
-        window.location.href = "/";
+        this.props.addToken(resp.data);
+        this.props.history.push("/");
     }).catch((error) => console.log(error));
 
     render() {
@@ -85,4 +88,8 @@ class Login extends Component {
     }
 }
 
-export default jss(Login);
+const mapStateToProps = () => ({});
+const mapDispatchToProps = (dispatch) => ({
+    addToken: (token) => dispatch({type: ADD_ACCESS_TOKEN, payload: token})
+});
+export default connect(mapStateToProps, mapDispatchToProps)(jss(withRouter(Login)));

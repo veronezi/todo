@@ -35,13 +35,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>todo-auth-docker</artifactId>
-            <version>${project.version}</version>
-            <type>pom</type>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
@@ -125,6 +118,7 @@
                 <configuration>
                     <systemPropertyVariables>
                         <headless>${headless}</headless>
+                        <AUTH_VERSION>${STABLE_VERSION_JWT}</AUTH_VERSION>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>

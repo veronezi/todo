@@ -5,7 +5,6 @@ target
 
 # dependencies
 ui/src/main/node/node_modules
-jwt-auth/src/main/node/node_modules
 
 # testing
 ui/src/main/node/coverage

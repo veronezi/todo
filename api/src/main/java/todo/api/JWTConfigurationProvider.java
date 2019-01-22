@@ -1,15 +1,12 @@
 package todo.api;
 
+import lombok.SneakyThrows;
 import lombok.val;
-import org.apache.commons.io.FileUtils;
 import org.apache.tomee.microprofile.jwt.config.JWTAuthContextInfo;
-import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Paths;
 import java.security.KeyFactory;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.X509EncodedKeySpec;
@@ -20,16 +17,12 @@ import java.util.Optional;
 public class JWTConfigurationProvider {
 
     @Inject
-    @ConfigProperty(name = "PUBLIC_KEY_DIR")
-    private String publickeyDir;
+    private JWTPublicKey publicKeyProvider;
 
     @Produces
-    public Optional<JWTAuthContextInfo> getOptionalContextInfo() throws Exception {
-        val pubFile = Paths.get(publickeyDir, "todo_rsa.pub").toFile();
-        val publicKeyPEM = FileUtils.readFileToString(pubFile, StandardCharsets.UTF_8)
-                .replaceAll("-----BEGIN (.*)-----", "")
-                .replaceAll("-----END (.*)----", "")
-                .replaceAll("\\s", "");
+    @SneakyThrows
+    public Optional<JWTAuthContextInfo> getOptionalContextInfo() {
+        val publicKeyPEM = publicKeyProvider.getPem();
         // decode to get the binary DER representation
         val publicKeyDER = Base64.getDecoder().decode(publicKeyPEM);
         val keyFactory = KeyFactory.getInstance("RSA");
@@ -41,7 +34,7 @@ public class JWTConfigurationProvider {
     }
 
     @Produces
-    public JWTAuthContextInfo getContextInfo() throws Exception {
+    public JWTAuthContextInfo getContextInfo() {
         return getOptionalContextInfo().orElseThrow(() -> new ExceptionApplication("missing context info"));
     }
 }

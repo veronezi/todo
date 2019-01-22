@@ -1,17 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tomee>
-
-    <Resource id="MyDatasource" type="DataSource">
-        # Use CATALINA_OPTS to setup these variables
-        # Example: -DMyDatasource.JdbcUrl=jdbc:postgresql://mydb:5432/mydbname -DMyDatasource.UserName=jdoe
-        JdbcDriver   org.postgresql.Driver
-        JdbcUrl      jdbc:postgresql://localhost/test
-        UserName     postgres
-        Password     pass
-
-        testOnBorrow true
-        validationQuery SELECT 1
-        removeAbandoned true
-    </Resource>
-
 </tomee>
