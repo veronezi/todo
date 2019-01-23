@@ -12,7 +12,6 @@ function deploy_docker_image () {
 }
 
 deploy_docker_image veronezi/todo-static
-deploy_docker_image veronezi/todo-auth
 deploy_docker_image veronezi/todo-facade
 deploy_docker_image veronezi/todo-api
 deploy_docker_image veronezi/todo-ft
