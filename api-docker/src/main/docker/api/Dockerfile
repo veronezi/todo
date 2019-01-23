@@ -1,10 +1,10 @@
 ARG VERSION
-ARG POSTGRES_VERSION
+ARG POSTGRES_DRIVER_VERSION
 ARG STABLE_VERSION_TOMEE
 
 FROM veronezi/sample-tomee:${STABLE_VERSION_TOMEE}
 
-COPY --chown=tomee:tomee postgresql.${POSTGRES_VERSION}.jar /opt/tomee/lib/
+COPY --chown=tomee:tomee postgresql.${POSTGRES_DRIVER_VERSION}.jar /opt/tomee/lib/
 
 COPY --chown=tomee:tomee ROOT.war /opt/tomee/webapps/
 COPY --chown=tomee:tomee tomcat-users.xml /opt/tomee/conf/

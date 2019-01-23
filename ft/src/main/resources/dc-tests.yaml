@@ -5,7 +5,7 @@ services:
     image: veronezi/todo-static
 
   auth:
-    image: veronezi/auth-jwt:${AUTH_VERSION:-latest}
+    image: veronezi/auth-jwt:${STABLE_VERSION_JWT}
 
   ui:
     image: veronezi/todo-facade
@@ -22,7 +22,7 @@ services:
     - WAIT_FOR=db:5432,auth:3000
 
   db:
-    image: postgres:10.4
+    image: veronezi/sample-postgres:${POSTGRES_VERSION}
     environment:
     - DEBUG=false
     - POSTGRES_DB=todo
