@@ -1,5 +1,6 @@
 package todo.api;
 
+import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 
 import javax.annotation.Resource;
@@ -15,6 +16,7 @@ import java.util.Objects;
 
 import static javax.ejb.TransactionAttributeType.SUPPORTS;
 
+@Slf4j
 @Stateless
 @RolesAllowed({"todo"})
 public class ServiceDatasource {
@@ -52,6 +54,7 @@ public class ServiceDatasource {
     }
 
     public void purge() {
+        log.warn("The user '{}' is purging the database.", context.getCallerPrincipal().getName());
         deleteAll(EntityTodo.class);
     }
 

@@ -1,5 +1,6 @@
 package todo.ft;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.testcontainers.containers.DockerComposeContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
@@ -8,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 
+@Slf4j
 public class ServicesContainers implements ServicesProvider {
 
     private static final Duration TIMEOUT = Duration.ofSeconds(120);
@@ -38,6 +40,9 @@ public class ServicesContainers implements ServicesProvider {
                         8080,
                         Wait.forListeningPort().withStartupTimeout(TIMEOUT)
                 );
+        if (Boolean.getBoolean("verbose")) {
+            this.stack.withLogConsumer("api_1", new org.testcontainers.containers.output.Slf4jLogConsumer(log));
+        }
         this.stack.start();
     }
 

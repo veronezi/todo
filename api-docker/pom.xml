@@ -12,12 +12,6 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>todo-auth-docker</artifactId>
-            <type>pom</type>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>todo-thirdparty-docker</artifactId>
             <type>pom</type>
             <version>${project.version}</version>
