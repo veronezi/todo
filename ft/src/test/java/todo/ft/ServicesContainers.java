@@ -40,7 +40,9 @@ public class ServicesContainers implements ServicesProvider {
                         8080,
                         Wait.forListeningPort().withStartupTimeout(TIMEOUT)
                 );
-        this.stack.withLogConsumer("api_1", new org.testcontainers.containers.output.Slf4jLogConsumer(log));
+        if (Boolean.getBoolean("verbose")) {
+            this.stack.withLogConsumer("api_1", new org.testcontainers.containers.output.Slf4jLogConsumer(log));
+        }
         this.stack.start();
     }
 
