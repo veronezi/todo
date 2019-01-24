@@ -232,5 +232,26 @@ public class Steps implements En {
         });
 
         Given("I am the '(.*)' user", (String usr) -> userName = usr);
+
+        Given("I '(.*)' a json template '(.*)' to '(.*)' (\\d+) times", (String verb, String jsonTemplate, String path, Integer times) -> {
+            val authorization = getAuthorization(userName);
+            val url = getEndpointUrl(path);
+            for (int i = 0; i < times; i++) {
+                final HttpRequestWithBody request;
+                if ("POST".equals(verb)) {
+                    request = Unirest.post(url);
+                } else if ("PUT".equals(verb)) {
+                    request = Unirest.put(url);
+                } else {
+                    fail("Unexpected verb.");
+                    return;
+                }
+                request.header("Content-Type", "application/json")
+                        .header("Authorization", authorization)
+                        .body(String.format(jsonTemplate, i))
+                        .asJson();
+            }
+        });
+
     }
 }

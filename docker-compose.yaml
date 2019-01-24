@@ -25,7 +25,7 @@ services:
     - WAIT_FOR=db:5432,auth:3000
 
   db:
-    image: veronezi/sample-postgres:${POSTGRES_VERSION:-0.0.1-b1}
+    image: veronezi/sample-postgres:${POSTGRES_VERSION:-latest}
     ports:
     - "${DB_PORT:-5432}:5432"
     environment:
