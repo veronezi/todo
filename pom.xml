@@ -26,11 +26,12 @@
         <mp-config.version>1.2</mp-config.version>
 
         <headless>true</headless>
+        <verbose>false</verbose>
 
         <VERSION>${project.version}</VERSION>
         <STABLE_VERSION_TOMEE>0.0.1-b10</STABLE_VERSION_TOMEE>
         <STABLE_VERSION_JWT>0.0.1-b6</STABLE_VERSION_JWT>
-        <POSTGRES_VERSION>0.0.1-b1</POSTGRES_VERSION>
+        <POSTGRES_VERSION>0.0.1-b5</POSTGRES_VERSION>
         <POSTGRES_DRIVER_VERSION>${postgres.driver.version}</POSTGRES_DRIVER_VERSION>
         <NODE_VERSION>${node.version}</NODE_VERSION>
         <DOCKERIZE_VERSION>v${dockerize_version}</DOCKERIZE_VERSION>

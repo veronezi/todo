@@ -124,6 +124,7 @@
                 <configuration>
                     <systemPropertyVariables>
                         <headless>${headless}</headless>
+                        <verbose>${verbose}</verbose>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
