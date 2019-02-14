@@ -21,10 +21,18 @@ services:
     environment:
     - WAIT_FOR=db:5432,auth:3000
 
+  minio:
+    image: veronezi/sample-minio:${MINIO_VERSION:-latest}
+
   db:
-    image: veronezi/sample-postgres:${POSTGRES_VERSION}
+    image: veronezi/sample-postgres:${POSTGRES_VERSION:-latest}
     environment:
-    - DEBUG=false
-    - POSTGRES_DB=todo
-    - POSTGRES_USER=todo_user
-    - POSTGRES_PASSWORD=todo_pass
+      - WAIT_FOR=minio:9000
+      - MINIO_URL=minio:9000
+      - MINIO_ACCESS_KEY=TESTINGACCESS123
+      - MINIO_SECRET_KEY=tesTingPass123
+      - RESTORE_BASE_BACKUP=${RESTORE_BASE_BACKUP:-}
+      - DEBUG=false
+      - POSTGRES_DB=todo
+      - POSTGRES_USER=todo_user
+      - POSTGRES_PASSWORD=todo_pass
