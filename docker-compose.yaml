@@ -6,8 +6,6 @@ services:
 
   auth:
     image: veronezi/auth-jwt:${AUTH_VERSION:-latest}
-    ports:
-      - "${AUTH_PORT:-3001}:3000"
 
   ui:
     image: veronezi/todo-facade:${UI_VERSION:-latest}
@@ -19,20 +17,24 @@ services:
 
   api:
     image: veronezi/todo-api:${API_VERSION:-latest}
-    ports:
-    - "${API_PORT:-8080}:8080"
     environment:
     - WAIT_FOR=db:5432,auth:3000
 
+  minio:
+    image: veronezi/sample-minio:${MINIO_VERSION:-latest}
+
   db:
     image: veronezi/sample-postgres:${POSTGRES_VERSION:-latest}
-    ports:
-    - "${DB_PORT:-5432}:5432"
     environment:
-    - DEBUG=false
-    - POSTGRES_DB=todo
-    - POSTGRES_USER=todo_user
-    - POSTGRES_PASSWORD=todo_pass
+      - WAIT_FOR=minio:9000
+      - MINIO_URL=minio:9000
+      - MINIO_ACCESS_KEY=TESTINGACCESS123
+      - MINIO_SECRET_KEY=tesTingPass123
+      - RESTORE_BASE_BACKUP=${RESTORE_BASE_BACKUP:-}
+      - DEBUG=false
+      - POSTGRES_DB=todo
+      - POSTGRES_USER=todo_user
+      - POSTGRES_PASSWORD=todo_pass
 
   ft:
     image: veronezi/todo-ft
