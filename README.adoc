@@ -7,7 +7,7 @@ image:https://api.codacy.com/project/badge/Grade/360222e55f084705909b4c4a780e3a5
 
 Click this button to try it live now. No installation required.
 
-image:https://github.com/play-with-docker/stacks/raw/master/assets/images/button.png[link="https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/veronezi/todo-demo/master/pwd-stack.yml"]
+image:https://github.com/play-with-docker/stacks/raw/master/assets/images/button.png[link="https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/veronezi/todo-infra/master/pwd/pwd-stack.yml"]
 
 == Whats in the box?
 
