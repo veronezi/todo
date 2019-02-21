@@ -27,11 +27,6 @@ const styles = theme => {
             flexGrow: 1,
             overflow: "auto"
         },
-        add: {
-            position: "absolute",
-            bottom: "20px",
-            right: "20px"
-        },
         header: {
             flexShrink: 0,
             height: "250px",
