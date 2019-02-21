@@ -1,20 +1,12 @@
-import primaryColor from "@material-ui/core/colors/indigo";
-import secondaryColor from "@material-ui/core/colors/red";
-
 const tokenKey = "auth-todo";
 const init = {
     accessToken: localStorage.getItem(tokenKey),
     todos: [],
-    loadingMarkers: [],
-    palette: {
-        primary: primaryColor,
-        secondary: secondaryColor
-    }
+    loadingMarkers: []
 };
 
 const ADD_ACCESS_TOKEN = "ADD_ACCESS_TOKEN";
 const REMOVE_ACCESS_TOKEN = "REMOVE_ACCESS_TOKEN";
-const UPDATE_PALETTE = "UPDATE_PALETTE";
 const UPDATE_TODOS_LIST = "UPDATE_TODOS_LIST";
 const TOGGLE_TODO_STATUS = "TOGGLE_TODO_STATUS";
 const ADD_LOADING_MARKER = "ADD_LOADING_MARKER";
@@ -63,13 +55,6 @@ const reducer = (state = init, action) => {
                 loadingMarkers: state.loadingMarkers.filter((marker) => marker !== action.payload)
             }
         }
-        case UPDATE_PALETTE: {
-            console.log("new palette", action.palette);
-            return {
-                ...state,
-                palette: action.palette
-            }
-        }
         default: {
             return state;
         }
@@ -79,7 +64,6 @@ const reducer = (state = init, action) => {
 export {
     ADD_ACCESS_TOKEN,
     REMOVE_ACCESS_TOKEN,
-    UPDATE_PALETTE,
     UPDATE_TODOS_LIST,
     TOGGLE_TODO_STATUS,
     ADD_LOADING_MARKER,

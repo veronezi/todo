@@ -10,7 +10,7 @@ const styles = theme => ({
             height: "100vh"
         },
         "#root": {
-            backgroundColor: theme.palette.primary.dark,
+            backgroundColor: theme.palette.primary.main,
             height: "100%",
             display: "flex",
             flexDirection: "column",

@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import axios from "./Rest";
 import {connect} from "react-redux";
 import TodosNumbers from "./TodosNumbers"
-import AddIcon from "@material-ui/icons/Add";
 import {TOGGLE_TODO_STATUS, UPDATE_TODOS_LIST} from "../reducer";
 import Loading from "./Loading";
 import TodosListEntry from "./TodosListEntry";
@@ -12,8 +11,8 @@ import Typography from "@material-ui/core/Typography/Typography";
 import classNames from "classnames";
 import {withRouter} from "react-router-dom";
 import jss from "./Todos.jss";
-import Fab from "@material-ui/core/Fab";
 import User from "./User";
+import TodosBottomBar from "./TodosBottomBar";
 
 class Todos extends Component {
 
@@ -33,6 +32,10 @@ class Todos extends Component {
     componentDidMount() {
         this.loadTodos();
     }
+
+    openConfigPage = () => {
+        this.props.history.push("/config");
+    };
 
     openTodoPage = () => {
         this.props.history.push("/todo");
@@ -60,10 +63,7 @@ class Todos extends Component {
                         {todos.map(todo => (<TodosListEntry todo={todo} key={todo.id}/>))}
                     </Grid>
                 </div>
-                <Fab className={classes.add} color="primary" aria-label="Add"
-                     onClick={() => this.openTodoPage()}>
-                    <AddIcon/>
-                </Fab>
+                <TodosBottomBar onSettings={this.openConfigPage} onAdd={this.openTodoPage}/>
             </div>
         );
     }

@@ -2,14 +2,25 @@ import React from "react";
 import {Route, Switch, withRouter} from "react-router-dom";
 import Todos from "./Todos";
 import Todo from "./Todo";
-import Config from "./Config";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import jss from "./Navigator.jss";
 import {connect} from "react-redux";
 import {Redirect} from "react-router";
+import {HotKeys} from "react-hotkeys";
 
-const Navigator = ({classes, accessToken, location}) => {
-    if(!accessToken && location.pathname !== "/login") {
+const Navigator = ({classes, accessToken, location, history}) => {
+    const shortcutKeyMap = {
+        newEntry: 'alt+n',
+    };
+    const shortcutHandlers = {
+        'newEntry': () => history.push("/todo")
+    };
+    const HandledTodos = () => (
+        <HotKeys keyMap={shortcutKeyMap} handlers={shortcutHandlers}>
+            <Todos/>
+        </HotKeys>
+    );
+    if (!accessToken && location.pathname !== "/login") {
         return (<Redirect to={"/login"}/>);
     }
     return (
@@ -23,9 +34,8 @@ const Navigator = ({classes, accessToken, location}) => {
                         exitActive: classes["fade-exit-active"]
                     }}>
                         <Switch location={location}>
-                            <Route exact path="/" component={Todos}/>
+                            <Route exact path="/" component={HandledTodos}/>
                             <Route path="/todo" component={Todo}/>
-                            <Route path="/config" component={Config}/>
                         </Switch>
                     </CSSTransition>
                 </TransitionGroup>

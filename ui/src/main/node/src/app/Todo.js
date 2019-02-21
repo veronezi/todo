@@ -57,6 +57,7 @@ class Todo extends Component {
                                    value={this.state.newTodo}
                                    onChange={this.handleNewTodoChange}
                                    onKeyPress={this.handleAddNewTodo}
+                                   autoFocus={true}
                         />
                         <Button variant="contained" className={classes.button} color="primary" aria-label="Add your thing"
                                 onClick={() => this.addNewTodo()}>
