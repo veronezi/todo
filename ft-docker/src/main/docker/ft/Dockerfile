@@ -17,6 +17,7 @@ RUN curl -s -o chrome.deb https://dl.google.com/linux/direct/google-chrome-stabl
 RUN apt-get update
 RUN dpkg -i chrome.deb; apt-get -fy install
 RUN rm chrome.deb
+RUN google-chrome --version
 
 COPY --from=dockerz /usr/local/bin/dockerize /usr/local/bin/
 

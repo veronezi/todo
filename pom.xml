@@ -11,7 +11,7 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <properties>
-        <openjdk.version>8-jre</openjdk.version>
+        <openjdk.version>8u212-jre</openjdk.version>
         <node.version>10.13.0</node.version>
         <log4j.version>1.2.17</log4j.version>
         <dockerize_version>0.6.1</dockerize_version>
@@ -20,7 +20,7 @@
         <tomee.version>7.1.0</tomee.version>
         <lombok.version>1.18.0</lombok.version>
         <powermock.version>1.7.4</powermock.version>
-        <chromedriver.version>2.44</chromedriver.version>
+        <chromedriver.version>74.0.3729.6</chromedriver.version>
 
         <mp-jwt.version>1.0</mp-jwt.version>
         <mp-config.version>1.2</mp-config.version>
