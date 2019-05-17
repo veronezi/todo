@@ -21,7 +21,7 @@ public class Browser implements Closeable {
     static {
         val loaded = ServiceLoader.load(ServicesProvider.class).iterator();
         services = loaded.next();
-        WebDriverManager.chromedriver().version("73").setup();
+        WebDriverManager.chromedriver().version("74").setup();
     }
 
     private Browser() {
